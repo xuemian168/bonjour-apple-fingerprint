@@ -45,13 +45,64 @@ def test_listener_converts_service_info_to_normalized_observation():
     assert zc.timeout == 500
 
 
-def test_listener_ignores_unresolved_service_info():
+def test_listener_preserves_unresolved_service_with_missing_evidence():
     zc = SimpleNamespace(get_service_info=lambda *args, **kwargs: None)
     listener = ObservationListener()
 
     listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
 
-    assert listener.devices() == ()
+    device = listener.devices()[0]
+    service = next(iter(device.services.values()))
+    assert device.server == (
+        "unresolved-"
+        "6dfd50fcd8590e437cc900b31fb2e280dd3d090d00b5a6bf"
+        ".invalid."
+    )
+    assert service.port == 0
+    assert service.addresses == ()
+    assert service.properties == {}
+
+
+def test_listener_preserves_partial_info_and_replaces_it_when_resolved():
+    class PartialInfo:
+        server = None
+        port = 7000
+        properties = {b"model": b"MacBookPro"}
+
+        def parsed_scoped_addresses(self):
+            return ["10.0.0.8"]
+
+    answers = iter([PartialInfo(), FakeInfo()])
+    zc = SimpleNamespace(
+        get_service_info=lambda *args, **kwargs: next(answers)
+    )
+    listener = ObservationListener(interface="en0")
+
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    pending = listener.devices()[0]
+    pending_service = next(iter(pending.services.values()))
+    assert pending.server.endswith(".invalid.")
+    assert pending_service.port == 7000
+    assert pending_service.addresses == ("10.0.0.8",)
+    assert pending_service.properties == {"model": "MacBookPro"}
+
+    listener.update_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    assert [device.server for device in listener.devices()] == ["desk.local."]
+
+
+def test_listener_does_not_recreate_pending_record_after_resolution():
+    answers = iter([FakeInfo(), None])
+    zc = SimpleNamespace(
+        get_service_info=lambda *args, **kwargs: next(answers)
+    )
+    listener = ObservationListener()
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    listener.update_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    assert [device.server for device in listener.devices()] == ["desk.local."]
 
 
 def test_listener_removes_observation_by_instance_name():
@@ -63,6 +114,17 @@ def test_listener_removes_observation_by_instance_name():
     listener.remove_service(
         FakeZeroconf(), "_rfb._tcp.local.", "Desk._rfb._tcp.local."
     )
+
+    assert listener.devices() == ()
+
+
+def test_listener_remove_uses_sanitized_observation_identity():
+    service_type = "_rfb.\x1b_tcp.local."
+    name = "Desk\x07." + service_type
+    listener = ObservationListener()
+    listener.add_service(FakeZeroconf(), service_type, name)
+
+    listener.remove_service(FakeZeroconf(), service_type, name)
 
     assert listener.devices() == ()
 
@@ -172,6 +234,20 @@ def test_discover_uses_resolved_interface_address(monkeypatch):
         FakeZeroconf(), "_rfb._tcp.local.", "Desk._rfb._tcp.local."
     )
     assert received["listener"].devices()[0].interfaces == {"en0"}
+
+
+def test_discover_rejects_interface_without_usable_ipv4(monkeypatch):
+    adapter = SimpleNamespace(
+        name="en0",
+        nice_name="Wi-Fi",
+        ips=[SimpleNamespace(ip="169.254.10.20")],
+    )
+    monkeypatch.setattr(discovery.ifaddr, "get_adapters", lambda: [adapter])
+
+    with pytest.raises(
+        DiscoveryError, match="interface.*en0.*no usable non-link-local IPv4"
+    ):
+        discover(1, interface="en0")
 
 
 def test_discover_returns_partial_results_on_keyboard_interrupt(monkeypatch):

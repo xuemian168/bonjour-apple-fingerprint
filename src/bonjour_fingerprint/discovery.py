@@ -1,6 +1,8 @@
+import hashlib
 import math
 import time
 from contextlib import suppress
+from dataclasses import replace
 from ipaddress import IPv4Address
 
 import ifaddr
@@ -31,6 +33,8 @@ class ObservationListener(ServiceListener):
     def __init__(self, interface: str | None = None) -> None:
         self._interface = interface
         self._aggregator = DeviceAggregator()
+        self._pending: set[tuple[str, str]] = set()
+        self._resolved: set[tuple[str, str]] = set()
 
     def add_service(self, zc, service_type: str, name: str) -> None:
         self._update(zc, service_type, name)
@@ -39,7 +43,10 @@ class ObservationListener(ServiceListener):
         self._update(zc, service_type, name)
 
     def remove_service(self, zc, service_type: str, name: str) -> None:
-        self._aggregator.remove(service_type, _instance_name(name, service_type))
+        identity = _normalized_identity(service_type, name)
+        self._aggregator.remove(*identity)
+        self._pending.discard(identity)
+        self._resolved.discard(identity)
 
     def devices(self) -> tuple[DeviceRecord, ...]:
         return self._aggregator.devices()
@@ -48,22 +55,50 @@ class ObservationListener(ServiceListener):
         info = zc.get_service_info(
             service_type, name, timeout=_SERVICE_INFO_TIMEOUT_MS
         )
-        if info is None or not info.server:
-            return
-        self._aggregator.add(
-            ServiceObservation(
-                service_type=service_type,
-                instance_name=_instance_name(name, service_type),
-                server=info.server,
-                port=info.port,
-                addresses=tuple(info.parsed_scoped_addresses()),
-                properties={
-                    key: value if value is not None else b""
-                    for key, value in info.properties.items()
-                },
-                interface=self._interface,
-            )
+        properties = {
+            key: value if value is not None else b""
+            for key, value in getattr(info, "properties", {}).items()
+        }
+        address_parser = getattr(info, "parsed_scoped_addresses", None)
+        addresses = tuple(address_parser()) if address_parser is not None else ()
+        observation = ServiceObservation(
+            service_type=service_type,
+            instance_name=_instance_name(name, service_type),
+            server=getattr(info, "server", "") or "",
+            port=getattr(info, "port", 0) or 0,
+            addresses=addresses,
+            properties=properties,
+            interface=self._interface,
         )
+        identity = observation.identity
+        if not observation.server:
+            if identity in self._resolved:
+                return
+            observation = replace(observation, server=_pending_server(identity))
+            self._pending.add(identity)
+        else:
+            if identity in self._pending:
+                self._aggregator.remove(*identity)
+                self._pending.remove(identity)
+            self._resolved.add(identity)
+        self._aggregator.add(observation)
+
+
+def _normalized_identity(service_type: str, name: str) -> tuple[str, str]:
+    return ServiceObservation(
+        service_type=service_type,
+        instance_name=_instance_name(name, service_type),
+        server="",
+        port=0,
+    ).identity
+
+
+def _pending_server(identity: tuple[str, str]) -> str:
+    service_type, instance_name = identity
+    digest = hashlib.sha256(
+        f"{service_type}\0{instance_name}".encode("utf-8")
+    ).hexdigest()[:48]
+    return f"unresolved-{digest}.invalid."
 
 
 def resolve_interface_addresses(name: str) -> list[str]:
@@ -119,6 +154,11 @@ def discover(
         raise DiscoveryError("duration must be a finite positive number")
 
     addresses = resolve_interface_addresses(interface) if interface is not None else []
+    if interface is not None and not addresses:
+        raise DiscoveryError(
+            f"interface {interface!r} has no usable non-link-local IPv4 address; "
+            "choose another interface"
+        )
     listener = ObservationListener(interface=interface)
     zc = None
     browser = None
