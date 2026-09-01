@@ -1,4 +1,4 @@
-from .models import DeviceRecord, ServiceObservation
+from .models import DeviceRecord, ServiceObservation, canonical_dns_name
 
 
 class DeviceAggregator:
@@ -16,14 +16,35 @@ class DeviceAggregator:
         owners.add(observation.server)
         self._rebuild(observation.server)
 
-    def remove(self, service_type: str, instance_name: str) -> None:
-        identity = service_type, instance_name
-        servers = self._owners.pop(identity, None)
+    def replace(
+        self, observation: ServiceObservation, *, previous_server: str
+    ) -> None:
+        """Retarget one known owner without disturbing parallel announcements."""
+        self.remove(*observation.identity, server=previous_server)
+        self.add(observation)
+
+    def remove(
+        self, service_type: str, instance_name: str, *, server: str | None = None
+    ) -> None:
+        """Remove one owner, or all owners when no server is specified."""
+        identity = ServiceObservation(
+            service_type=service_type,
+            instance_name=instance_name,
+            server="",
+            port=0,
+        ).identity
+        servers = self._owners.get(identity)
         if servers is None:
             return
-        for server in servers:
-            self._devices[server].services.pop(identity, None)
-            self._rebuild(server)
+        targets = set(servers)
+        if server is not None:
+            targets.intersection_update({canonical_dns_name(server)})
+        for target in targets:
+            self._devices[target].services.pop(identity, None)
+            servers.remove(target)
+            self._rebuild(target)
+        if not servers:
+            del self._owners[identity]
 
     def devices(self) -> tuple[DeviceRecord, ...]:
         return tuple(self._devices[key] for key in sorted(self._devices))

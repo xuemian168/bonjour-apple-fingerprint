@@ -6,7 +6,7 @@ from dataclasses import replace
 from ipaddress import IPv4Address
 
 import ifaddr
-from zeroconf import InterfaceChoice, ServiceBrowser, ServiceListener, Zeroconf
+from zeroconf import ServiceBrowser, ServiceListener, Zeroconf
 
 from .aggregator import DeviceAggregator
 from .models import DeviceRecord, ServiceObservation
@@ -35,23 +35,27 @@ class ObservationListener(ServiceListener):
         self._aggregator = DeviceAggregator()
         self._pending: set[tuple[str, str]] = set()
         self._resolved: set[tuple[str, str]] = set()
+        self._current_owners: dict[tuple[str, str], str] = {}
 
     def add_service(self, zc, service_type: str, name: str) -> None:
-        self._update(zc, service_type, name)
+        self._update(zc, service_type, name, replace_existing=False)
 
     def update_service(self, zc, service_type: str, name: str) -> None:
-        self._update(zc, service_type, name)
+        self._update(zc, service_type, name, replace_existing=True)
 
     def remove_service(self, zc, service_type: str, name: str) -> None:
         identity = _normalized_identity(service_type, name)
-        self._aggregator.remove(*identity)
+        owner = self._current_owners.pop(identity, None)
+        self._aggregator.remove(*identity, server=owner)
         self._pending.discard(identity)
         self._resolved.discard(identity)
 
     def devices(self) -> tuple[DeviceRecord, ...]:
         return self._aggregator.devices()
 
-    def _update(self, zc, service_type: str, name: str) -> None:
+    def _update(
+        self, zc, service_type: str, name: str, *, replace_existing: bool
+    ) -> None:
         info = zc.get_service_info(
             service_type, name, timeout=_SERVICE_INFO_TIMEOUT_MS
         )
@@ -65,23 +69,30 @@ class ObservationListener(ServiceListener):
             service_type=service_type,
             instance_name=_instance_name(name, service_type),
             server=getattr(info, "server", "") or "",
-            port=getattr(info, "port", 0) or 0,
+            port=getattr(info, "port", None) or 0,
             addresses=addresses,
             properties=properties,
             interface=self._interface,
+            port_resolved=info is not None
+            and getattr(info, "port", None) is not None,
         )
         identity = observation.identity
+        previous_owner = self._current_owners.get(identity)
         if not observation.server:
             if identity in self._resolved:
                 return
             observation = replace(observation, server=_pending_server(identity))
             self._pending.add(identity)
         else:
-            if identity in self._pending:
-                self._aggregator.remove(*identity)
-                self._pending.remove(identity)
+            self._pending.discard(identity)
             self._resolved.add(identity)
-        self._aggregator.add(observation)
+        if replace_existing and previous_owner is not None:
+            self._aggregator.replace(
+                observation, previous_server=previous_owner
+            )
+        else:
+            self._aggregator.add(observation)
+        self._current_owners[identity] = observation.server
 
 
 def _normalized_identity(service_type: str, name: str) -> tuple[str, str]:
@@ -103,20 +114,25 @@ def _pending_server(identity: tuple[str, str]) -> str:
 
 def resolve_interface_addresses(name: str) -> list[str]:
     """Return usable IPv4 addresses for a named local interface."""
+    bindings = resolve_discovery_interfaces(name)
+    return bindings[0][1] if bindings else []
+
+
+def resolve_discovery_interfaces(
+    name: str | None = None,
+) -> list[tuple[str, list[str]]]:
+    """Return concrete interface/address bindings suitable for sound provenance."""
     try:
         adapters = ifaddr.get_adapters()
     except Exception as exc:
         raise DiscoveryError(f"could not inspect network interfaces: {exc}") from exc
 
-    adapter = next(
-        (
-            candidate
-            for candidate in adapters
-            if name in (candidate.name, candidate.nice_name)
-        ),
-        None,
-    )
-    if adapter is None:
+    selected = [
+        candidate
+        for candidate in adapters
+        if name is None or name in (candidate.name, candidate.nice_name)
+    ]
+    if name is not None and not selected:
         available = ", ".join(
             candidate.name
             if candidate.nice_name == candidate.name
@@ -127,17 +143,22 @@ def resolve_interface_addresses(name: str) -> list[str]:
             f"unknown interface {name!r}; available interfaces: {available or 'none'}"
         )
 
-    addresses: list[str] = []
-    for candidate in adapter.ips:
-        if not isinstance(candidate.ip, str):
-            continue
-        try:
-            address = IPv4Address(candidate.ip)
-        except ValueError:
-            continue
-        if not address.is_link_local:
-            addresses.append(str(address))
-    return list(dict.fromkeys(addresses))
+    bindings: list[tuple[str, list[str]]] = []
+    for adapter in selected:
+        addresses: list[str] = []
+        for candidate in adapter.ips:
+            if not isinstance(candidate.ip, str):
+                continue
+            try:
+                address = IPv4Address(candidate.ip)
+            except ValueError:
+                continue
+            if not address.is_link_local:
+                addresses.append(str(address))
+        addresses = list(dict.fromkeys(addresses))
+        if addresses:
+            bindings.append((adapter.name, addresses))
+    return bindings
 
 
 def discover(
@@ -153,30 +174,37 @@ def discover(
     ):
         raise DiscoveryError("duration must be a finite positive number")
 
-    addresses = resolve_interface_addresses(interface) if interface is not None else []
-    if interface is not None and not addresses:
+    bindings = resolve_discovery_interfaces(interface)
+    if interface is not None and not bindings:
         raise DiscoveryError(
             f"interface {interface!r} has no usable non-link-local IPv4 address; "
             "choose another interface"
         )
-    listener = ObservationListener(interface=interface)
-    zc = None
-    browser = None
+    if not bindings:
+        raise DiscoveryError("no usable non-link-local IPv4 interfaces available")
+    listeners: list[ObservationListener] = []
+    zeroconfs: list[Zeroconf] = []
+    browsers: list[ServiceBrowser] = []
     try:
-        try:
-            zc = Zeroconf(
-                interfaces=addresses or InterfaceChoice.All,
-                unicast=False,
-            )
-        except Exception as exc:
-            raise DiscoveryError(
-                f"failed to initialize Bonjour discovery: {exc}"
-            ) from exc
+        for interface_name, addresses in bindings:
+            listener = ObservationListener(interface=interface_name)
+            listeners.append(listener)
+            try:
+                zc = Zeroconf(interfaces=addresses, unicast=False)
+                zeroconfs.append(zc)
+            except Exception as exc:
+                raise DiscoveryError(
+                    f"failed to initialize Bonjour discovery: {exc}"
+                ) from exc
 
-        try:
-            browser = ServiceBrowser(zc, list(service_types), listener=listener)
-        except Exception as exc:
-            raise DiscoveryError(f"failed to start Bonjour browser: {exc}") from exc
+            try:
+                browsers.append(
+                    ServiceBrowser(zc, list(service_types), listener=listener)
+                )
+            except Exception as exc:
+                raise DiscoveryError(
+                    f"failed to start Bonjour browser: {exc}"
+                ) from exc
 
         deadline = time.monotonic() + duration
         while (remaining := deadline - time.monotonic()) > 0:
@@ -184,15 +212,40 @@ def discover(
     except KeyboardInterrupt:
         pass
     finally:
-        if browser is not None:
+        for browser in browsers:
             with suppress(Exception):
                 browser.cancel()
-        if zc is not None:
+        for zc in zeroconfs:
             with suppress(Exception):
                 zc.close()
-    return listener.devices()
+    return _merge_listener_devices(listeners)
+
+
+def _merge_listener_devices(
+    listeners: list[ObservationListener],
+) -> tuple[DeviceRecord, ...]:
+    aggregator = DeviceAggregator()
+    addresses: dict[str, set[str]] = {}
+    interfaces: dict[str, set[str]] = {}
+    for listener in listeners:
+        for device in listener.devices():
+            addresses.setdefault(device.server, set()).update(device.addresses)
+            interfaces.setdefault(device.server, set()).update(device.interfaces)
+            for service in device.services.values():
+                aggregator.add(service)
+    devices = aggregator.devices()
+    for device in devices:
+        device.addresses.update(addresses[device.server])
+        device.interfaces.update(interfaces[device.server])
+    return devices
 
 
 def _instance_name(name: str, service_type: str) -> str:
-    suffix = "." + service_type
-    return name[: -len(suffix)] if name.endswith(suffix) else name
+    clean_name = str(name).rstrip(".")
+    clean_type = str(service_type).rstrip(".")
+    suffix = "." + clean_type
+    return (
+        clean_name[: -len(suffix)]
+        if clean_name.lower().endswith(suffix.lower())
+        else clean_name
+    )

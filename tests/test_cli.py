@@ -21,6 +21,7 @@ def service(
     addresses: tuple[str, ...] = ("10.147.17.140",),
     properties: dict[str, str] | None = None,
     interface: str | None = "en0",
+    port_resolved: bool = True,
 ) -> ServiceObservation:
     return ServiceObservation(
         service_type=service_type,
@@ -30,6 +31,7 @@ def service(
         addresses=addresses,
         properties=properties or {},
         interface=interface,
+        port_resolved=port_resolved,
     )
 
 
@@ -125,6 +127,7 @@ def test_json_marks_partial_discovery_without_exposing_synthetic_values(
             port=0,
             addresses=(),
             interface=None,
+            port_resolved=False,
         )
     )
     monkeypatch.setattr(
@@ -162,6 +165,7 @@ def test_text_marks_partial_discovery_without_exposing_synthetic_values(
             port=0,
             addresses=(),
             interface=None,
+            port_resolved=False,
         )
     )
     monkeypatch.setattr(

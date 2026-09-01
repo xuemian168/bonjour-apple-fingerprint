@@ -6,8 +6,8 @@ import pytest
 
 from bonjour_fingerprint.aggregator import DeviceAggregator
 from bonjour_fingerprint.fingerprints import classify, load_model_catalog
-from bonjour_fingerprint.models import Confidence, ServiceObservation
-from bonjour_fingerprint.render import render_text
+from bonjour_fingerprint.models import Confidence, ModelCandidate, ServiceObservation
+from bonjour_fingerprint.render import render_text, result_to_dict
 
 
 CATALOG = {"Mac17,9": "MacBook Pro (14-inch, M5 Pro, 2026)"}
@@ -85,7 +85,16 @@ def test_conflicting_explicit_identifiers_are_not_silently_resolved():
     )
     result = classify(device, {**CATALOG, "Mac99,1": "Imaginary Mac"})
     assert result.model == "unknown"
+    assert result.confidence is Confidence.LOW
     assert result.conflicts == ("Mac17,9", "Mac99,1")
+    assert result.candidates == (
+        ModelCandidate(
+            "Mac17,9",
+            "MacBook Pro (14-inch, M5 Pro, 2026)",
+            "_device-info._tcp.local. TXT am",
+        ),
+        ModelCandidate("Mac99,1", "Imaginary Mac", "_airplay._tcp.local. TXT am"),
+    )
 
 
 def test_known_and_unrecognized_explicit_identifiers_are_a_conflict():
@@ -99,13 +108,34 @@ def test_known_and_unrecognized_explicit_identifiers_are_a_conflict():
     assert result.model == "unknown"
     assert result.confidence is Confidence.LOW
     assert result.conflicts == ("Mac17,9", "Mac99,1")
+    assert result.candidates == (
+        ModelCandidate(
+            "Mac17,9",
+            "MacBook Pro (14-inch, M5 Pro, 2026)",
+            "_device-info._tcp.local. TXT am",
+        ),
+    )
+    assert any(item.value == "Mac99,1" for item in result.evidence)
+
+
+def test_unrecognized_identifier_is_observed_but_recognized_identifier_is_missing():
+    result = classify(
+        device_with(
+            service(
+                "_device-info._tcp.local.", properties={"am": "UnmappedDevice1,1"}
+            )
+        ),
+        CATALOG,
+    )
+
+    assert result.missing == ("recognized explicit Apple model identifier",)
+    assert any(item.value == "UnmappedDevice1,1" for item in result.evidence)
 
 
 def test_iphone_category_includes_instance_name_evidence():
     result = classify(
         device_with(service("_airplay._tcp.local.", name="Ana's iPhone")), CATALOG
     )
-
     assert result.category == "iPhone"
     assert any(
         evidence.source == "instance name"
@@ -113,6 +143,16 @@ def test_iphone_category_includes_instance_name_evidence():
         and evidence.strength is Confidence.MEDIUM
         for evidence in result.evidence
     )
+
+
+def test_ipad_instance_name_supports_category_without_claiming_exact_model():
+    result = classify(
+        device_with(service("_airplay._tcp.local.", name="Mina's iPad")), CATALOG
+    )
+
+    assert result.category == "iPad"
+    assert result.model == "unknown"
+    assert result.confidence is Confidence.LOW
 
 
 def test_raop_category_includes_service_evidence():
@@ -190,6 +230,30 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
     assert result.candidates[0].source == "_alpha._tcp.local. TXT am"
 
 
+def test_duplicate_same_kind_advertisements_do_not_inflate_confidence():
+    result = classify(
+        device_with(
+            service("_raop._tcp.local.", name="Living Room A", port=7000),
+            service("_raop._tcp.local.", name="Living Room B", port=7000),
+        ),
+        CATALOG,
+    )
+
+    assert result.category == "Apple audio device"
+    assert result.confidence is Confidence.LOW
+
+
+def test_resolved_srv_port_zero_is_preserved_and_not_incomplete():
+    result = classify(
+        device_with(service("_device-info._tcp.local.", port=0)),
+        CATALOG,
+    )
+
+    payload = result_to_dict(result)
+    assert payload["services"][0]["port"] == 0
+    assert payload["completeness"] == {"complete": True, "issues": []}
+
+
 @pytest.mark.parametrize(
     ("fixture_name", "case_name"),
     [
@@ -201,6 +265,8 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
         ("adversarial_txt.json", None),
         ("non_apple_generic.json", None),
         ("conflicting_models.json", None),
+        ("ipad_devices.json", "category-only"),
+        ("ipad_devices.json", "explicit-model"),
     ],
     ids=[
         "macbook-rfb-only",
@@ -211,6 +277,8 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
         "adversarial",
         "non-apple-generic",
         "conflicting-models",
+        "ipad-category-only",
+        "ipad-explicit-model",
     ],
 )
 def test_realistic_fixture_classification(fixture_name, case_name):

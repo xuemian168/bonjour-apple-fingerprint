@@ -19,6 +19,7 @@ FAMILY_CATEGORIES = {
     "apple tv": "Apple TV",
     "homepod": "HomePod",
     "iphone": "iPhone",
+    "ipad": "iPad",
 }
 
 
@@ -59,6 +60,15 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
         for source in sorted(sources)
     ]
     evidence = [*category_evidence, *identifier_evidence]
+    candidates = tuple(
+        ModelCandidate(
+            identifier,
+            catalog[identifier],
+            min(identifier_sources[identifier]),
+        )
+        for identifier in sorted(identifier_sources)
+        if identifier in catalog
+    )
 
     if len(identifier_sources) > 1:
         return ClassificationResult(
@@ -67,6 +77,7 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
             "unknown",
             Confidence.LOW,
             tuple(evidence),
+            candidates=candidates,
             conflicts=tuple(sorted(identifier_sources)),
         )
     if len(identifier_sources) == 1:
@@ -78,7 +89,7 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
                 "unknown",
                 Confidence.LOW,
                 tuple(evidence),
-                missing=("explicit Apple model identifier",),
+                missing=("recognized explicit Apple model identifier",),
             )
         source = min(sources)
         candidate = ModelCandidate(identifier, catalog[identifier], source)
@@ -92,7 +103,11 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
             candidates=(candidate,),
         )
 
-    confidence = Confidence.MEDIUM if len(category_evidence) >= 2 else Confidence.LOW
+    confidence = (
+        Confidence.MEDIUM
+        if len(_independent_category_signals(category_evidence)) >= 2
+        else Confidence.LOW
+    )
     return ClassificationResult(
         device,
         category,
@@ -148,6 +163,9 @@ def _category(
     if "iphone" in names:
         evidence.append(Evidence("instance name", "iPhone", Confidence.MEDIUM))
         return "iPhone", tuple(evidence)
+    if "ipad" in names:
+        evidence.append(Evidence("instance name", "iPad", Confidence.MEDIUM))
+        return "iPad", tuple(evidence)
     if "homepod" in names:
         evidence.append(Evidence("instance name", "HomePod", Confidence.MEDIUM))
     if "homepod" in names or any(
@@ -174,9 +192,27 @@ def _category_from_model(model_name: str) -> str | None:
     for prefix, category in (
         ("macbook pro", "MacBook Pro"),
         ("iphone", "iPhone"),
+        ("ipad", "iPad"),
         ("apple tv", "Apple TV"),
         ("homepod", "HomePod"),
     ):
         if normalized.startswith(prefix):
             return category
     return None
+
+
+def _independent_category_signals(
+    evidence: tuple[Evidence, ...],
+) -> set[tuple[str, str]]:
+    signals: set[tuple[str, str]] = set()
+    for item in evidence:
+        if item.source == "service":
+            service_type = item.value.split(" on port ", 1)[0].split(
+                " with unresolved port", 1
+            )[0]
+            signals.add(("service", service_type))
+        elif item.source == "instance name":
+            signals.add(("instance name", item.value.lower()))
+        elif item.source.endswith(" TXT md"):
+            signals.add(("product family", item.value.lower()))
+    return signals

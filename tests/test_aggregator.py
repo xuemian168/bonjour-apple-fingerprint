@@ -35,10 +35,54 @@ def test_does_not_merge_similar_display_names_with_different_servers():
     assert len(aggregator.devices()) == 2
 
 
-def test_remove_drops_all_servers_with_the_same_service_identity():
+def test_retarget_retires_only_the_previous_owner():
     aggregator = DeviceAggregator()
-    aggregator.add(observation("_rfb._tcp.local.", "MacBook", "one.local.", "10.0.0.2", 5900))
-    aggregator.add(observation("_rfb._tcp.local.", "MacBook", "two.local.", "10.0.0.3", 5900))
+    aggregator.add(
+        observation("_rfb._tcp.local.", "MacBook", "old.local.", "10.0.0.2", 5900)
+    )
+    aggregator.add(
+        observation(
+            "_rfb._tcp.local.",
+            "MacBook",
+            "parallel.local.",
+            "10.0.0.3",
+            5900,
+        )
+    )
+
+    aggregator.replace(
+        observation("_rfb._tcp.local.", "MacBook", "new.local.", "10.0.0.4", 5900),
+        previous_server="old.local.",
+    )
+
+    assert [device.server for device in aggregator.devices()] == [
+        "new.local.",
+        "parallel.local.",
+    ]
+
+
+def test_remove_owner_preserves_parallel_same_identity_announcement():
+    aggregator = DeviceAggregator()
+    aggregator.add(
+        observation("_rfb._tcp.local.", "MacBook", "one.local.", "10.0.0.2", 5900)
+    )
+    aggregator.add(
+        observation("_rfb._tcp.local.", "MacBook", "two.local.", "10.0.0.3", 5900)
+    )
+
+    aggregator.remove("_rfb._tcp.local.", "MacBook", server="one.local.")
+
+    assert [device.server for device in aggregator.devices()] == ["two.local."]
+
+
+def test_remove_without_owner_explicitly_drops_all_same_identity_announcements():
+    aggregator = DeviceAggregator()
+    aggregator.add(
+        observation("_rfb._tcp.local.", "MacBook", "one.local.", "10.0.0.2", 5900)
+    )
+    aggregator.add(
+        observation("_rfb._tcp.local.", "MacBook", "two.local.", "10.0.0.3", 5900)
+    )
 
     aggregator.remove("_rfb._tcp.local.", "MacBook")
 

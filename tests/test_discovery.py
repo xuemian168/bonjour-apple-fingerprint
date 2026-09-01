@@ -1,8 +1,6 @@
 from types import SimpleNamespace
 
 import pytest
-from zeroconf import InterfaceChoice
-
 from bonjour_fingerprint import discovery
 from bonjour_fingerprint.discovery import (
     APPLE_SERVICE_TYPES,
@@ -59,6 +57,7 @@ def test_listener_preserves_unresolved_service_with_missing_evidence():
         ".invalid."
     )
     assert service.port == 0
+    assert service.port_resolved is False
     assert service.addresses == ()
     assert service.properties == {}
 
@@ -84,12 +83,58 @@ def test_listener_preserves_partial_info_and_replaces_it_when_resolved():
     pending_service = next(iter(pending.services.values()))
     assert pending.server.endswith(".invalid.")
     assert pending_service.port == 7000
+    assert pending_service.port_resolved is True
     assert pending_service.addresses == ("10.0.0.8",)
     assert pending_service.properties == {"model": "MacBookPro"}
 
     listener.update_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
 
     assert [device.server for device in listener.devices()] == ["desk.local."]
+
+
+def test_listener_update_retargets_and_removal_drops_only_current_owner():
+    first = SimpleNamespace(
+        server="old.local.",
+        port=5900,
+        properties={},
+        parsed_scoped_addresses=lambda: ["10.0.0.2"],
+    )
+    second = SimpleNamespace(
+        server="new.local.",
+        port=5900,
+        properties={},
+        parsed_scoped_addresses=lambda: ["10.0.0.3"],
+    )
+    answers = iter([first, second])
+    zc = SimpleNamespace(get_service_info=lambda *args, **kwargs: next(answers))
+    listener = ObservationListener(interface="en0")
+
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    listener.update_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    assert [device.server for device in listener.devices()] == ["new.local."]
+    listener.remove_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    assert listener.devices() == ()
+
+
+def test_listener_treats_srv_port_zero_as_resolved_observation():
+    info = SimpleNamespace(
+        server="desk.local.",
+        port=0,
+        properties={},
+        parsed_scoped_addresses=lambda: ["10.0.0.2"],
+    )
+    listener = ObservationListener(interface="en0")
+
+    listener.add_service(
+        SimpleNamespace(get_service_info=lambda *args, **kwargs: info),
+        "_device-info._tcp.local.",
+        "Desk._device-info._tcp.local.",
+    )
+
+    service = next(iter(listener.devices()[0].services.values()))
+    assert service.port == 0
+    assert service.port_resolved is True
 
 
 def test_listener_does_not_recreate_pending_record_after_resolution():
@@ -155,6 +200,40 @@ def test_resolve_interface_addresses_rejects_unknown_interface(monkeypatch):
         resolve_interface_addresses("missing")
 
 
+def test_resolve_interface_addresses_returns_empty_for_interface_without_ipv4(
+    monkeypatch,
+):
+    adapter = SimpleNamespace(
+        name="en0",
+        nice_name="Wi-Fi",
+        ips=[SimpleNamespace(ip="169.254.10.20")],
+    )
+    monkeypatch.setattr(discovery.ifaddr, "get_adapters", lambda: [adapter])
+
+    assert resolve_interface_addresses("en0") == []
+
+
+def test_default_interface_resolution_returns_concrete_adapter_names(monkeypatch):
+    adapters = [
+        SimpleNamespace(
+            name="en0",
+            nice_name="Wi-Fi",
+            ips=[SimpleNamespace(ip="10.0.0.2")],
+        ),
+        SimpleNamespace(
+            name="en1",
+            nice_name="Ethernet",
+            ips=[SimpleNamespace(ip="10.0.1.2")],
+        ),
+    ]
+    monkeypatch.setattr(discovery.ifaddr, "get_adapters", lambda: adapters)
+
+    assert discovery.resolve_discovery_interfaces() == [
+        ("en0", ["10.0.0.2"]),
+        ("en1", ["10.0.1.2"]),
+    ]
+
+
 @pytest.mark.parametrize("duration", [0, -1, float("nan"), float("inf")])
 def test_discover_rejects_invalid_duration(duration):
     with pytest.raises(
@@ -182,13 +261,18 @@ def test_discover_browses_requested_services_and_cleans_up(monkeypatch):
 
     monkeypatch.setattr(discovery, "Zeroconf", LocalZeroconf)
     monkeypatch.setattr(discovery, "ServiceBrowser", LocalBrowser)
+    monkeypatch.setattr(
+        discovery,
+        "resolve_discovery_interfaces",
+        lambda name=None: [("en0", ["10.0.0.2"])],
+    )
     monkeypatch.setattr(discovery.time, "monotonic", _clock([1.0, 1.0, 1.05]))
     monkeypatch.setattr(
         discovery.time, "sleep", lambda seconds: events.append(("sleep", seconds))
     )
 
     assert discover(0.05, service_types=("_rfb._tcp.local.",)) == ()
-    assert events[0] == ("zc", InterfaceChoice.All, False)
+    assert events[0] == ("zc", ["10.0.0.2"], False)
     assert events[1][0:2] == ("browser", ("_rfb._tcp.local.",))
     assert isinstance(events[1][2], ObservationListener)
     sleep_event = next(
@@ -219,7 +303,9 @@ def test_discover_uses_resolved_interface_address(monkeypatch):
             pass
 
     monkeypatch.setattr(
-        discovery, "resolve_interface_addresses", lambda name: ["10.0.0.2"]
+        discovery,
+        "resolve_discovery_interfaces",
+        lambda name=None: [("en0", ["10.0.0.2"])],
     )
     monkeypatch.setattr(discovery, "Zeroconf", LocalZeroconf)
     monkeypatch.setattr(discovery, "ServiceBrowser", LocalBrowser)
@@ -234,6 +320,51 @@ def test_discover_uses_resolved_interface_address(monkeypatch):
         FakeZeroconf(), "_rfb._tcp.local.", "Desk._rfb._tcp.local."
     )
     assert received["listener"].devices()[0].interfaces == {"en0"}
+
+
+def test_default_discovery_preserves_concrete_interface_provenance(monkeypatch):
+    listeners = []
+
+    class LocalZeroconf:
+        def __init__(self, *, interfaces, unicast):
+            self.interfaces = interfaces
+
+        def close(self):
+            pass
+
+        def get_service_info(self, service_type, name, timeout=3000):
+            address = "10.0.0.20" if self.interfaces == ["10.0.0.2"] else "10.0.1.20"
+            return SimpleNamespace(
+                server="desk.local.",
+                port=5900,
+                properties={},
+                parsed_scoped_addresses=lambda: [address],
+            )
+
+    class LocalBrowser:
+        def __init__(self, zc, service_types, *, listener):
+            listeners.append(listener)
+            listener.add_service(zc, service_types[0], f"Desk.{service_types[0]}")
+
+        def cancel(self):
+            pass
+
+    monkeypatch.setattr(
+        discovery,
+        "resolve_discovery_interfaces",
+        lambda name=None: [("en0", ["10.0.0.2"]), ("en1", ["10.0.1.2"])],
+    )
+    monkeypatch.setattr(discovery, "Zeroconf", LocalZeroconf)
+    monkeypatch.setattr(discovery, "ServiceBrowser", LocalBrowser)
+    monkeypatch.setattr(discovery.time, "monotonic", _clock([3.0, 3.0, 3.01]))
+    monkeypatch.setattr(discovery.time, "sleep", lambda seconds: None)
+
+    devices = discover(0.01, service_types=("_rfb._tcp.local.",))
+
+    assert len(listeners) == 2
+    assert len(devices) == 1
+    assert devices[0].interfaces == {"en0", "en1"}
+    assert devices[0].addresses == {"10.0.0.20", "10.0.1.20"}
 
 
 def test_discover_rejects_interface_without_usable_ipv4(monkeypatch):
@@ -274,6 +405,11 @@ def test_discover_returns_partial_results_on_keyboard_interrupt(monkeypatch):
 
     monkeypatch.setattr(discovery, "Zeroconf", LocalZeroconf)
     monkeypatch.setattr(discovery, "ServiceBrowser", LocalBrowser)
+    monkeypatch.setattr(
+        discovery,
+        "resolve_discovery_interfaces",
+        lambda name=None: [("en0", ["10.0.0.2"])],
+    )
     monkeypatch.setattr(discovery.time, "monotonic", _clock([4.0, 4.0]))
     monkeypatch.setattr(discovery.time, "sleep", interrupt)
 

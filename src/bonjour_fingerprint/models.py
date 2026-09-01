@@ -4,6 +4,12 @@ from enum import StrEnum
 from .sanitize import sanitize_text
 
 
+def canonical_dns_name(value: str | bytes) -> str:
+    """Return a case-insensitive absolute DNS name, preserving an empty value."""
+    normalized = sanitize_text(value).strip().lower().rstrip(".")
+    return f"{normalized[:511]}." if normalized else ""
+
+
 class Confidence(StrEnum):
     LOW = "low"
     MEDIUM = "medium"
@@ -19,11 +25,14 @@ class ServiceObservation:
     addresses: tuple[str, ...] = ()
     properties: dict[str, str] = field(default_factory=dict)
     interface: str | None = None
+    port_resolved: bool = True
 
     def __post_init__(self) -> None:
-        object.__setattr__(self, "service_type", sanitize_text(self.service_type))
+        object.__setattr__(
+            self, "service_type", canonical_dns_name(self.service_type)
+        )
         object.__setattr__(self, "instance_name", sanitize_text(self.instance_name))
-        object.__setattr__(self, "server", sanitize_text(self.server).lower())
+        object.__setattr__(self, "server", canonical_dns_name(self.server))
         object.__setattr__(self, "addresses", tuple(dict.fromkeys(self.addresses)))
         object.__setattr__(
             self,

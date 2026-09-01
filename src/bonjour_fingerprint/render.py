@@ -14,7 +14,7 @@ def _completeness_issues(result: ClassificationResult) -> list[str]:
         issues.append("unresolved server")
     if not result.device.addresses:
         issues.append("missing addresses")
-    if any(service.port == 0 for service in result.device.services.values()):
+    if any(not service.port_resolved for service in result.device.services.values()):
         issues.append("unresolved service port")
     return issues
 
@@ -23,7 +23,8 @@ def _evidence_value(result: ClassificationResult, item: Evidence) -> str:
     if item.source != "service":
         return item.value
     for service in result.device.services.values():
-        if service.port == 0 and item.value == f"{service.service_type} on port 0":
+        unresolved_value = f"{service.service_type} on port 0"
+        if not service.port_resolved and item.value == unresolved_value:
             return f"{service.service_type} with unresolved port"
     return item.value
 
@@ -41,7 +42,7 @@ def result_to_dict(result: ClassificationResult) -> dict[str, object]:
             {
                 "type": service.service_type,
                 "name": service.instance_name,
-                "port": None if service.port == 0 else service.port,
+                "port": service.port if service.port_resolved else None,
                 "properties": dict(sorted(service.properties.items())),
             }
             for service in sorted(
@@ -105,7 +106,7 @@ def render_text(
             result.device.services.values(),
             key=lambda item: (item.service_type, item.instance_name),
         ):
-            port = "unresolved" if service.port == 0 else str(service.port)
+            port = str(service.port) if service.port_resolved else "unresolved"
             lines.append(
                 f"    - {service.service_type} {service.instance_name} :{port}"
             )

@@ -32,6 +32,19 @@ interface:
 .venv/bin/bonjour-fingerprint scan --duration 5 --interface en0
 ```
 
+The zeroconf service callback does not expose the receiving interface. To keep
+provenance sound, a default scan opens one passive browser per concrete local
+interface that has a usable IPv4 address, then deduplicates the resulting
+device views while retaining every contributing interface. Returned service
+data can still include IPv6 addresses. IPv6-only interfaces are not browsed in
+version 0.1; records are never labelled with a guessed interface.
+
+JSON output is a top-level array of device results for compatibility with the
+version 0.1 schema. Scan duration and an optional interface are supplied by the
+invocation; consequently an empty JSON result is `[]` and does not embed that
+context. A versioned metadata envelope is deferred until a schema version can
+be introduced without silently breaking array consumers.
+
 An abridged result for a Mac that exposes Screen Sharing may look like this:
 
 ```text
@@ -79,6 +92,8 @@ information. Review text and JSON output before storing or sharing it.
 - Sleeping, offline, firewalled, or quiet devices may not advertise during the
   observation window.
 - Some devices omit `_device-info`, so an exact model may remain unknown.
+- An SRV port of `0` is retained as an observed value. A missing service-info
+  response is represented separately and rendered with a `null` JSON port.
 - The tool performs no BLE discovery and no active VNC, SSH, SMB, or other
   network probing.
 

@@ -22,3 +22,29 @@ def test_service_observation_normalizes_untrusted_fields():
     )
     assert observation.instance_name == "Desk[2J"
     assert observation.identity == ("_rfb._tcp.local.", "Desk[2J")
+
+
+def test_service_observation_canonicalizes_dns_target_and_service_type():
+    observation = ServiceObservation(
+        service_type="_RFB._TCP.LOCAL",
+        instance_name="Desk",
+        server="DESK.Local",
+        port=5900,
+    )
+
+    assert observation.service_type == "_rfb._tcp.local."
+    assert observation.server == "desk.local."
+
+
+def test_dns_canonicalization_does_not_exceed_untrusted_input_cap():
+    observation = ServiceObservation(
+        service_type="x" * 512,
+        instance_name="Desk",
+        server="y" * 512,
+        port=5900,
+    )
+
+    assert len(observation.service_type) == 512
+    assert len(observation.server) == 512
+    assert observation.service_type.endswith(".")
+    assert observation.server.endswith(".")
