@@ -52,6 +52,42 @@ def test_json_output_is_machine_readable(monkeypatch, capsys):
     assert payload[0]["completeness"] == {"complete": True, "issues": []}
 
 
+def test_json_preserves_service_address_interface_provenance(monkeypatch, capsys):
+    device = device_with(
+        service(
+            "_rfb._tcp.local.",
+            "Desk",
+            addresses=("10.0.0.20",),
+            interface="en0",
+        ),
+        service(
+            "_rfb._tcp.local.",
+            "Desk",
+            addresses=("10.0.1.20",),
+            interface="en1",
+        ),
+    )
+    monkeypatch.setattr(cli, "discover", lambda duration, interface=None: (device,))
+
+    assert cli.main(["scan", "--duration", "1", "--json"]) == 0
+
+    payload = json.loads(capsys.readouterr().out)
+    assert payload[0]["services"][0]["provenance"] == [
+        {
+            "interface": "en0",
+            "addresses": ["10.0.0.20"],
+            "port": 5900,
+            "port_resolved": True,
+        },
+        {
+            "interface": "en1",
+            "addresses": ["10.0.1.20"],
+            "port": 5900,
+            "port_resolved": True,
+        },
+    ]
+
+
 def test_text_output_lists_confidence_evidence_missing_and_conflicts(
     monkeypatch, capsys
 ):

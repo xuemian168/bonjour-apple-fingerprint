@@ -39,6 +39,15 @@ device views while retaining every contributing interface. Returned service
 data can still include IPv6 addresses. IPv6-only interfaces are not browsed in
 version 0.1; records are never labelled with a guessed interface.
 
+Each JSON service includes additive `provenance` rows that correlate the
+concrete receiving interface, addresses, port, and resolution state. The
+legacy device-level address/interface unions and singular observation fields
+remain available for compatibility. Bonjour removal callbacks do not include
+an SRV target; if colliding announcements share an exact service identity, the
+tool conservatively retains all possible owners during ambiguous updates and
+removes all of them when that identity is withdrawn, avoiding a stranded stale
+owner.
+
 JSON output is a top-level array of device results for compatibility with the
 version 0.1 schema. Scan duration and an optional interface are supplied by the
 invocation; consequently an empty JSON result is `[]` and does not embed that

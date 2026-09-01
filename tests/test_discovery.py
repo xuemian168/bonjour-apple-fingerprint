@@ -117,6 +117,68 @@ def test_listener_update_retargets_and_removal_drops_only_current_owner():
     assert listener.devices() == ()
 
 
+def test_listener_removal_clears_all_ambiguous_same_identity_owners():
+    answers = iter(
+        [
+            SimpleNamespace(
+                server="one.local.",
+                port=5900,
+                properties={},
+                parsed_scoped_addresses=lambda: ["10.0.0.2"],
+            ),
+            SimpleNamespace(
+                server="two.local.",
+                port=5900,
+                properties={},
+                parsed_scoped_addresses=lambda: ["10.0.0.3"],
+            ),
+        ]
+    )
+    zc = SimpleNamespace(get_service_info=lambda *args, **kwargs: next(answers))
+    listener = ObservationListener(interface="en0")
+
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    assert [device.server for device in listener.devices()] == [
+        "one.local.",
+        "two.local.",
+    ]
+
+    listener.remove_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    assert listener.devices() == ()
+
+
+def test_ambiguous_update_preserves_all_possible_prior_owners_until_removal():
+    def info(server, address):
+        return SimpleNamespace(
+            server=server,
+            port=5900,
+            properties={},
+            parsed_scoped_addresses=lambda: [address],
+        )
+
+    answers = iter(
+        [
+            info("one.local.", "10.0.0.2"),
+            info("two.local.", "10.0.0.3"),
+            info("three.local.", "10.0.0.4"),
+        ]
+    )
+    zc = SimpleNamespace(get_service_info=lambda *args, **kwargs: next(answers))
+    listener = ObservationListener(interface="en0")
+
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    listener.add_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+    listener.update_service(zc, "_rfb._tcp.local.", "Desk._rfb._tcp.local.")
+
+    assert [device.server for device in listener.devices()] == [
+        "one.local.",
+        "three.local.",
+        "two.local.",
+    ]
+
+
 def test_listener_treats_srv_port_zero_as_resolved_observation():
     info = SimpleNamespace(
         server="desk.local.",
@@ -365,6 +427,13 @@ def test_default_discovery_preserves_concrete_interface_provenance(monkeypatch):
     assert len(devices) == 1
     assert devices[0].interfaces == {"en0", "en1"}
     assert devices[0].addresses == {"10.0.0.20", "10.0.1.20"}
+    service = next(iter(devices[0].services.values()))
+    assert [
+        (row.interface, row.addresses) for row in service.provenance
+    ] == [
+        ("en0", ("10.0.0.20",)),
+        ("en1", ("10.0.1.20",)),
+    ]
 
 
 def test_discover_rejects_interface_without_usable_ipv4(monkeypatch):

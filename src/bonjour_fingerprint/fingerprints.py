@@ -124,21 +124,9 @@ def _category(
     evidence: list[Evidence] = []
     for service in services:
         if service.service_type == "_raop._tcp.local.":
-            evidence.append(
-                Evidence(
-                    "service",
-                    f"{service.service_type} on port {service.port}",
-                    Confidence.MEDIUM,
-                )
-            )
+            evidence.append(_service_evidence(service, Confidence.MEDIUM))
         if service.service_type == "_rfb._tcp.local.":
-            evidence.append(
-                Evidence(
-                    "service",
-                    f"{service.service_type} on port {service.port}",
-                    Confidence.MEDIUM,
-                )
-            )
+            evidence.append(_service_evidence(service, Confidence.MEDIUM))
     family_categories: dict[str, list[tuple[str, str]]] = {}
     for service in services:
         family = service.properties.get("md", "").strip()
@@ -176,13 +164,7 @@ def _category(
         return "Mac", tuple(evidence)
     if services:
         service = services[0]
-        evidence.append(
-            Evidence(
-                "service",
-                f"{service.service_type} on port {service.port}",
-                Confidence.LOW,
-            )
-        )
+        evidence.append(_service_evidence(service, Confidence.LOW))
         return "Unknown device", tuple(evidence)
     return "Unknown device", ()
 
@@ -203,16 +185,31 @@ def _category_from_model(model_name: str) -> str | None:
 
 def _independent_category_signals(
     evidence: tuple[Evidence, ...],
-) -> set[tuple[str, str]]:
-    signals: set[tuple[str, str]] = set()
+) -> set[str]:
+    signals: set[str] = set()
     for item in evidence:
         if item.source == "service":
-            service_type = item.value.split(" on port ", 1)[0].split(
-                " with unresolved port", 1
-            )[0]
-            signals.add(("service", service_type))
+            signals.add("service")
         elif item.source == "instance name":
-            signals.add(("instance name", item.value.lower()))
+            signals.add("instance name")
         elif item.source.endswith(" TXT md"):
-            signals.add(("product family", item.value.lower()))
+            signals.add("product family")
     return signals
+
+
+def _service_evidence(
+    service: ServiceObservation, strength: Confidence
+) -> Evidence:
+    value = (
+        f"{service.service_type} on port {service.port}"
+        if service.port_resolved
+        else f"{service.service_type} with unresolved port"
+    )
+    return Evidence(
+        "service",
+        value,
+        strength,
+        service_type=service.service_type,
+        instance_name=service.instance_name,
+        port_resolved=service.port_resolved,
+    )

@@ -12,6 +12,36 @@ class DeviceAggregator:
         device = self._devices.setdefault(
             observation.server, DeviceRecord(server=observation.server)
         )
+        existing = device.services.get(identity)
+        if existing is not None:
+            incoming_interfaces = {
+                item.interface for item in observation.provenance
+            }
+            provenance = (
+                *(
+                    item
+                    for item in existing.provenance
+                    if item.interface not in incoming_interfaces
+                ),
+                *observation.provenance,
+            )
+            observation = ServiceObservation(
+                service_type=observation.service_type,
+                instance_name=observation.instance_name,
+                server=observation.server,
+                port=observation.port,
+                addresses=tuple(
+                    dict.fromkeys(
+                        address
+                        for item in provenance
+                        for address in item.addresses
+                    )
+                ),
+                properties=observation.properties,
+                interface=None,
+                port_resolved=observation.port_resolved,
+                provenance=provenance,
+            )
         device.services[identity] = observation
         owners.add(observation.server)
         self._rebuild(observation.server)
@@ -58,5 +88,7 @@ class DeviceAggregator:
             address for service in device.services.values() for address in service.addresses
         }
         device.interfaces = {
-            service.interface for service in device.services.values() if service.interface
+            interface
+            for service in device.services.values()
+            for interface in service.interfaces
         }

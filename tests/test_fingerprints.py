@@ -45,9 +45,16 @@ def device_with(*observations):
     return aggregator.devices()[0]
 
 
-def service(kind, name="Desk", properties=None, port=0):
+def service(kind, name="Desk", properties=None, port=0, port_resolved=True):
     return ServiceObservation(
-        kind, name, "desk.local.", port, ("10.0.0.2",), properties or {}, "en0"
+        kind,
+        name,
+        "desk.local.",
+        port,
+        ("10.0.0.2",),
+        properties or {},
+        "en0",
+        port_resolved,
     )
 
 
@@ -243,6 +250,27 @@ def test_duplicate_same_kind_advertisements_do_not_inflate_confidence():
     assert result.confidence is Confidence.LOW
 
 
+def test_product_family_aliases_do_not_count_as_independent_signal_classes():
+    result = classify(
+        device_with(
+            service(
+                "_airplay._tcp.local.",
+                name="Living Room",
+                properties={"md": "AppleTV"},
+            ),
+            service(
+                "_companion-link._tcp.local.",
+                name="Den",
+                properties={"md": "Apple TV"},
+            ),
+        ),
+        CATALOG,
+    )
+
+    assert result.category == "Apple TV"
+    assert result.confidence is Confidence.LOW
+
+
 def test_resolved_srv_port_zero_is_preserved_and_not_incomplete():
     result = classify(
         device_with(service("_device-info._tcp.local.", port=0)),
@@ -252,6 +280,42 @@ def test_resolved_srv_port_zero_is_preserved_and_not_incomplete():
     payload = result_to_dict(result)
     assert payload["services"][0]["port"] == 0
     assert payload["completeness"] == {"complete": True, "issues": []}
+
+
+def test_mixed_port_zero_evidence_preserves_each_observations_resolution_state():
+    result = classify(
+        device_with(
+            service(
+                "_rfb._tcp.local.",
+                name="Resolved",
+                port=0,
+                port_resolved=True,
+            ),
+            service(
+                "_rfb._tcp.local.",
+                name="Unresolved",
+                port=0,
+                port_resolved=False,
+            ),
+        ),
+        CATALOG,
+    )
+
+    payload = result_to_dict(result)
+    service_evidence = [
+        item for item in payload["evidence"] if item["source"] == "service"
+    ]
+    assert [item["value"] for item in service_evidence] == [
+        "_rfb._tcp.local. on port 0",
+        "_rfb._tcp.local. with unresolved port",
+    ]
+    assert [item["observation"]["name"] for item in service_evidence] == [
+        "Resolved",
+        "Unresolved",
+    ]
+    output = render_text([result], duration=1, interface="en0")
+    assert output.count("on port 0") == 1
+    assert output.count("with unresolved port") == 1
 
 
 @pytest.mark.parametrize(

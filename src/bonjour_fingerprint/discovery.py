@@ -35,7 +35,7 @@ class ObservationListener(ServiceListener):
         self._aggregator = DeviceAggregator()
         self._pending: set[tuple[str, str]] = set()
         self._resolved: set[tuple[str, str]] = set()
-        self._current_owners: dict[tuple[str, str], str] = {}
+        self._owners: dict[tuple[str, str], set[str]] = {}
 
     def add_service(self, zc, service_type: str, name: str) -> None:
         self._update(zc, service_type, name, replace_existing=False)
@@ -45,8 +45,10 @@ class ObservationListener(ServiceListener):
 
     def remove_service(self, zc, service_type: str, name: str) -> None:
         identity = _normalized_identity(service_type, name)
-        owner = self._current_owners.pop(identity, None)
-        self._aggregator.remove(*identity, server=owner)
+        # The callback contains no target server, so removal is necessarily
+        # identity-wide. This avoids stranding an ambiguous simultaneous owner.
+        self._owners.pop(identity, None)
+        self._aggregator.remove(*identity)
         self._pending.discard(identity)
         self._resolved.discard(identity)
 
@@ -77,7 +79,7 @@ class ObservationListener(ServiceListener):
             and getattr(info, "port", None) is not None,
         )
         identity = observation.identity
-        previous_owner = self._current_owners.get(identity)
+        owners = self._owners.setdefault(identity, set())
         if not observation.server:
             if identity in self._resolved:
                 return
@@ -86,13 +88,15 @@ class ObservationListener(ServiceListener):
         else:
             self._pending.discard(identity)
             self._resolved.add(identity)
-        if replace_existing and previous_owner is not None:
-            self._aggregator.replace(
-                observation, previous_server=previous_owner
-            )
+        if replace_existing and observation.server not in owners and len(owners) == 1:
+            previous_owner = next(iter(owners))
+            self._aggregator.replace(observation, previous_server=previous_owner)
+            owners.remove(previous_owner)
         else:
+            # With multiple possible owners, the callback does not identify
+            # which one changed. Preserve all until an identity-wide removal.
             self._aggregator.add(observation)
-        self._current_owners[identity] = observation.server
+        owners.add(observation.server)
 
 
 def _normalized_identity(service_type: str, name: str) -> tuple[str, str]:

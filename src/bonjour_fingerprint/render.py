@@ -20,12 +20,6 @@ def _completeness_issues(result: ClassificationResult) -> list[str]:
 
 
 def _evidence_value(result: ClassificationResult, item: Evidence) -> str:
-    if item.source != "service":
-        return item.value
-    for service in result.device.services.values():
-        unresolved_value = f"{service.service_type} on port 0"
-        if not service.port_resolved and item.value == unresolved_value:
-            return f"{service.service_type} with unresolved port"
     return item.value
 
 
@@ -44,6 +38,17 @@ def result_to_dict(result: ClassificationResult) -> dict[str, object]:
                 "name": service.instance_name,
                 "port": service.port if service.port_resolved else None,
                 "properties": dict(sorted(service.properties.items())),
+                "addresses": list(service.addresses),
+                "interfaces": list(service.interfaces),
+                "provenance": [
+                    {
+                        "interface": row.interface,
+                        "addresses": list(row.addresses),
+                        "port": row.port if row.port_resolved else None,
+                        "port_resolved": row.port_resolved,
+                    }
+                    for row in service.provenance
+                ],
             }
             for service in sorted(
                 result.device.services.values(),
@@ -55,6 +60,15 @@ def result_to_dict(result: ClassificationResult) -> dict[str, object]:
                 "source": item.source,
                 "value": _evidence_value(result, item),
                 "strength": item.strength.value,
+                "observation": (
+                    {
+                        "type": item.service_type,
+                        "name": item.instance_name,
+                        "port_resolved": item.port_resolved,
+                    }
+                    if item.service_type is not None
+                    else None
+                ),
             }
             for item in result.evidence
         ],
@@ -109,6 +123,13 @@ def render_text(
             port = str(service.port) if service.port_resolved else "unresolved"
             lines.append(
                 f"    - {service.service_type} {service.instance_name} :{port}"
+            )
+            lines.extend(
+                "      observed on "
+                + (row.interface or "unknown interface")
+                + ": "
+                + (", ".join(row.addresses) or "unresolved address")
+                for row in service.provenance
             )
         lines.append("  evidence:")
         lines.extend(
