@@ -1,0 +1,18 @@
+{
+  "observations": [
+    {
+      "service_type": "_airplay._tcp.local.",
+      "instance_name": "Kitchen\u001b[31m HomePod\u000a",
+      "server": "kitchen-homepod\u0007.local.",
+      "port": 7000,
+      "addresses": ["10.0.0.34"],
+      "properties": {"md": "Home\u0000Pod", "note\u0009": "private\u007fname"},
+      "interface": "en0"
+    }
+  ],
+  "expected": {
+    "category": "HomePod",
+    "model": "unknown",
+    "confidence": "medium"
+  }
+}

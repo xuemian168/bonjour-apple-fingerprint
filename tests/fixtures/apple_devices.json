@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "name": "iphone",
+      "observations": [
+        {
+          "service_type": "_airplay._tcp.local.",
+          "instance_name": "Ana's iPhone",
+          "server": "anas-iphone.local.",
+          "port": 7000,
+          "addresses": ["10.0.0.31"],
+          "properties": {"md": "iPhone"},
+          "interface": "en0"
+        },
+        {
+          "service_type": "_companion-link._tcp.local.",
+          "instance_name": "Ana's iPhone",
+          "server": "anas-iphone.local.",
+          "port": 49152,
+          "addresses": ["10.0.0.31"],
+          "properties": {},
+          "interface": "en0"
+        }
+      ],
+      "expected": {
+        "category": "iPhone",
+        "model": "unknown",
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "apple-tv",
+      "observations": [
+        {
+          "service_type": "_airplay._tcp.local.",
+          "instance_name": "Living Room Apple TV",
+          "server": "living-room-tv.local.",
+          "port": 7000,
+          "addresses": ["10.0.0.32"],
+          "properties": {"md": "AppleTV"},
+          "interface": "en0"
+        }
+      ],
+      "expected": {
+        "category": "Apple TV",
+        "model": "unknown",
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "homepod",
+      "observations": [
+        {
+          "service_type": "_airplay._tcp.local.",
+          "instance_name": "Kitchen HomePod",
+          "server": "kitchen-homepod.local.",
+          "port": 7000,
+          "addresses": ["10.0.0.33"],
+          "properties": {"md": "HomePod"},
+          "interface": "en0"
+        },
+        {
+          "service_type": "_raop._tcp.local.",
+          "instance_name": "Kitchen HomePod",
+          "server": "kitchen-homepod.local.",
+          "port": 7000,
+          "addresses": ["10.0.0.33"],
+          "properties": {},
+          "interface": "en0"
+        }
+      ],
+      "expected": {
+        "category": "HomePod",
+        "model": "unknown",
+        "confidence": "medium"
+      }
+    }
+  ]
+}

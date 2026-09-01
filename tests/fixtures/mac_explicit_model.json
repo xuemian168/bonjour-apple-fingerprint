@@ -1,0 +1,18 @@
+{
+  "observations": [
+    {
+      "service_type": "_device-info._tcp.local.",
+      "instance_name": "Studio Mac",
+      "server": "studio-mac.local.",
+      "port": 0,
+      "addresses": ["10.0.0.20"],
+      "properties": {"am": "Mac17,9"},
+      "interface": "en0"
+    }
+  ],
+  "expected": {
+    "category": "MacBook Pro",
+    "model": "MacBook Pro (14-inch, M5 Pro, 2026)",
+    "confidence": "high"
+  }
+}

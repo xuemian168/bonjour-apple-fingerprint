@@ -14,6 +14,12 @@ from .models import (
 
 
 MODEL_KEYS = ("am", "model")
+FAMILY_CATEGORIES = {
+    "appletv": "Apple TV",
+    "apple tv": "Apple TV",
+    "homepod": "HomePod",
+    "iphone": "iPhone",
+}
 
 
 def load_model_catalog(path: Path | None = None) -> dict[str, str]:
@@ -76,6 +82,7 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
             )
         source = min(sources)
         candidate = ModelCandidate(identifier, catalog[identifier], source)
+        category = _category_from_model(candidate.name) or category
         return ClassificationResult(
             device,
             category,
@@ -117,6 +124,24 @@ def _category(
                     Confidence.MEDIUM,
                 )
             )
+    family_categories: dict[str, list[tuple[str, str]]] = {}
+    for service in services:
+        family = service.properties.get("md", "").strip()
+        category = FAMILY_CATEGORIES.get(family.lower())
+        if category:
+            family_categories.setdefault(category, []).append(
+                (f"{service.service_type} TXT md", family)
+            )
+    if len(family_categories) == 1:
+        category, sources = next(iter(family_categories.items()))
+        evidence.extend(
+            Evidence(source, family, Confidence.MEDIUM)
+            for source, family in sorted(sources)
+        )
+        name_token = category.lower()
+        if name_token in names:
+            evidence.append(Evidence("instance name", category, Confidence.MEDIUM))
+        return category, tuple(evidence)
     if "macbook pro" in names:
         evidence.append(Evidence("instance name", "MacBook Pro", Confidence.MEDIUM))
         return "MacBook Pro", tuple(evidence)
@@ -142,3 +167,16 @@ def _category(
         )
         return "Unknown device", tuple(evidence)
     return "Unknown device", ()
+
+
+def _category_from_model(model_name: str) -> str | None:
+    normalized = model_name.lower()
+    for prefix, category in (
+        ("macbook pro", "MacBook Pro"),
+        ("iphone", "iPhone"),
+        ("apple tv", "Apple TV"),
+        ("homepod", "HomePod"),
+    ):
+        if normalized.startswith(prefix):
+            return category
+    return None

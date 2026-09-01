@@ -1,0 +1,18 @@
+{
+  "observations": [
+    {
+      "service_type": "_rfb._tcp.local.",
+      "instance_name": "MacBook Pro Plus Max Ultra",
+      "server": "MacBook-Pro-Plus-Max-Ultra.local.",
+      "port": 5900,
+      "addresses": ["10.147.17.140"],
+      "properties": {},
+      "interface": "en0"
+    }
+  ],
+  "expected": {
+    "category": "MacBook Pro",
+    "model": "unknown",
+    "confidence": "medium"
+  }
+}

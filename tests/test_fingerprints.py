@@ -1,9 +1,41 @@
+import json
+import re
+from pathlib import Path
+
+import pytest
+
 from bonjour_fingerprint.aggregator import DeviceAggregator
-from bonjour_fingerprint.fingerprints import classify
+from bonjour_fingerprint.fingerprints import classify, load_model_catalog
 from bonjour_fingerprint.models import Confidence, ServiceObservation
+from bonjour_fingerprint.render import render_text
 
 
 CATALOG = {"Mac17,9": "MacBook Pro (14-inch, M5 Pro, 2026)"}
+FIXTURES = Path(__file__).with_name("fixtures")
+UNSAFE_RENDERED_CONTROLS = re.compile(r"[\x00-\x09\x0b-\x1f\x7f-\x9f]")
+
+
+def load_fixture(name, case_name=None):
+    with (FIXTURES / name).open(encoding="utf-8") as handle:
+        fixture = json.load(handle)
+    if case_name is None:
+        return fixture
+    return next(case for case in fixture["cases"] if case["name"] == case_name)
+
+
+def classify_fixture(name, case_name=None):
+    fixture = load_fixture(name, case_name)
+    aggregator = DeviceAggregator()
+    for observation in fixture["observations"]:
+        aggregator.add(
+            ServiceObservation(
+                **{
+                    **observation,
+                    "addresses": tuple(observation.get("addresses", ())),
+                }
+            )
+        )
+    return fixture, classify(aggregator.devices()[0], load_model_catalog())
 
 
 def device_with(*observations):
@@ -156,3 +188,40 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
     result = classify(device, CATALOG)
 
     assert result.candidates[0].source == "_alpha._tcp.local. TXT am"
+
+
+@pytest.mark.parametrize(
+    ("fixture_name", "case_name"),
+    [
+        ("macbook_rfb_only.json", None),
+        ("mac_explicit_model.json", None),
+        ("apple_devices.json", "iphone"),
+        ("apple_devices.json", "apple-tv"),
+        ("apple_devices.json", "homepod"),
+        ("adversarial_txt.json", None),
+    ],
+    ids=[
+        "macbook-rfb-only",
+        "explicit-model",
+        "iphone",
+        "apple-tv",
+        "homepod",
+        "adversarial",
+    ],
+)
+def test_realistic_fixture_classification(fixture_name, case_name):
+    fixture, result = classify_fixture(fixture_name, case_name)
+
+    assert {
+        "category": result.category,
+        "model": result.model,
+        "confidence": result.confidence.value,
+    } == fixture["expected"]
+
+
+def test_adversarial_fixture_renders_without_control_characters():
+    _, result = classify_fixture("adversarial_txt.json")
+
+    output = render_text([result], duration=1, interface="en0")
+
+    assert UNSAFE_RENDERED_CONTROLS.search(output) is None
