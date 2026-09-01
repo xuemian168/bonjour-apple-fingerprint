@@ -37,6 +37,9 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
         for key in MODEL_KEYS:
             identifier = service.properties.get(key)
             if identifier is not None:
+                identifier = identifier.strip()
+                if not identifier:
+                    continue
                 source = f"{service.service_type} TXT {key}"
                 identifier_sources.setdefault(identifier, set()).add(source)
 
@@ -137,5 +140,5 @@ def _category(
                 Confidence.LOW,
             )
         )
-        return "Apple device candidate", tuple(evidence)
+        return "Unknown device", tuple(evidence)
     return "Unknown device", ()
