@@ -1,0 +1,28 @@
+{
+  "observations": [
+    {
+      "service_type": "_device-info._tcp.local.",
+      "instance_name": "MacBook Pro Lab",
+      "server": "lab-mac.local.",
+      "port": 0,
+      "addresses": ["10.0.0.61"],
+      "properties": {"am": "Mac17,9"},
+      "interface": "en0"
+    },
+    {
+      "service_type": "_airplay._tcp.local.",
+      "instance_name": "MacBook Pro Lab",
+      "server": "lab-mac.local.",
+      "port": 7000,
+      "addresses": ["10.0.0.61"],
+      "properties": {"model": "iPhone14,5"},
+      "interface": "en0"
+    }
+  ],
+  "expected": {
+    "category": "MacBook Pro",
+    "model": "unknown",
+    "confidence": "low",
+    "conflicts": ["Mac17,9", "iPhone14,5"]
+  }
+}

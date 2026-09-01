@@ -199,6 +199,8 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
         ("apple_devices.json", "apple-tv"),
         ("apple_devices.json", "homepod"),
         ("adversarial_txt.json", None),
+        ("non_apple_generic.json", None),
+        ("conflicting_models.json", None),
     ],
     ids=[
         "macbook-rfb-only",
@@ -207,16 +209,23 @@ def test_duplicate_identifier_uses_a_stable_canonical_candidate_source():
         "apple-tv",
         "homepod",
         "adversarial",
+        "non-apple-generic",
+        "conflicting-models",
     ],
 )
 def test_realistic_fixture_classification(fixture_name, case_name):
     fixture, result = classify_fixture(fixture_name, case_name)
 
-    assert {
+    actual = {
         "category": result.category,
         "model": result.model,
         "confidence": result.confidence.value,
-    } == fixture["expected"]
+    }
+    expected = fixture["expected"]
+
+    assert actual == {key: expected[key] for key in actual}
+    if "conflicts" in expected:
+        assert list(result.conflicts) == expected["conflicts"]
 
 
 def test_adversarial_fixture_renders_without_control_characters():

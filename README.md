@@ -52,11 +52,12 @@ Category classification and exact model identification are separate:
 
 - **High** confidence requires an explicit recognized model identifier in a
   model TXT field, such as `am=Mac17,9`.
-- **Medium** confidence means explicit product-family evidence or multiple
-  independent signals agree on a category, such as a relevant service and a
-  conventional Bonjour name.
-- **Low** confidence means only a weak or unrecognized signal is available, or
-  explicit fields conflict.
+- **Medium** confidence means multiple independent signals agree on a category,
+  such as an explicit product-family field corroborated by a conventional
+  Bonjour name or relevant service.
+- **Low** confidence means only one category signal is available (including a
+  lone explicit product-family field), a signal is unrecognized, or explicit
+  fields conflict.
 
 Exact model names are reported only when an explicit identifier is present and
 recognized by the bundled model catalog. Names, service combinations, ports,
