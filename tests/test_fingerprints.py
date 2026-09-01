@@ -314,8 +314,14 @@ def test_mixed_port_zero_evidence_preserves_each_observations_resolution_state()
         "Unresolved",
     ]
     output = render_text([result], duration=1, interface="en0")
-    assert output.count("on port 0") == 1
-    assert output.count("with unresolved port") == 1
+    assert (
+        "[medium] service: _rfb._tcp.local. on port 0 "
+        "(instance: Resolved)" in output
+    )
+    assert (
+        "[medium] service: _rfb._tcp.local. with unresolved port "
+        "(instance: Unresolved)" in output
+    )
 
 
 @pytest.mark.parametrize(

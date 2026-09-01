@@ -23,6 +23,13 @@ def _evidence_value(result: ClassificationResult, item: Evidence) -> str:
     return item.value
 
 
+def _text_evidence_value(result: ClassificationResult, item: Evidence) -> str:
+    value = _evidence_value(result, item)
+    if item.service_type is not None and item.instance_name is not None:
+        return f"{value} (instance: {item.instance_name})"
+    return value
+
+
 def result_to_dict(result: ClassificationResult) -> dict[str, object]:
     issues = _completeness_issues(result)
     return {
@@ -134,7 +141,7 @@ def render_text(
         lines.append("  evidence:")
         lines.extend(
             f"    - [{item.strength.value}] {item.source}: "
-            f"{_evidence_value(result, item)}"
+            f"{_text_evidence_value(result, item)}"
             for item in result.evidence
         )
         if result.missing:
