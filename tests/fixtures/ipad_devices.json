@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "name": "category-only",
+      "observations": [
+        {
+          "service_type": "_airplay._tcp.local.",
+          "instance_name": "Mina's iPad",
+          "server": "mina-ipad.local.",
+          "port": 7000,
+          "addresses": ["10.0.0.30"],
+          "properties": {"md": "iPad"},
+          "interface": "en0"
+        }
+      ],
+      "expected": {
+        "category": "iPad",
+        "model": "unknown",
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "explicit-model",
+      "observations": [
+        {
+          "service_type": "_device-info._tcp.local.",
+          "instance_name": "Mina's tablet",
+          "server": "mina-ipad.local.",
+          "port": 0,
+          "addresses": ["10.0.0.30"],
+          "properties": {"am": "iPad13,4"},
+          "interface": "en0"
+        }
+      ],
+      "expected": {
+        "category": "iPad",
+        "model": "iPad Pro (11-inch, 3rd generation)",
+        "confidence": "high"
+      }
+    }
+  ]
+}

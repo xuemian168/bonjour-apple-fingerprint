@@ -1,0 +1,18 @@
+{
+  "observations": [
+    {
+      "service_type": "_ipp._tcp.local.",
+      "instance_name": "Office Laser Printer",
+      "server": "office-printer.local.",
+      "port": 631,
+      "addresses": ["10.0.0.60"],
+      "properties": {"product": "Laser Printer"},
+      "interface": "en0"
+    }
+  ],
+  "expected": {
+    "category": "Unknown device",
+    "model": "unknown",
+    "confidence": "low"
+  }
+}

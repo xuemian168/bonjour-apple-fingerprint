@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bonjour-apple-fingerprint"
+version = "0.1.0"
+description = "Evidence-backed Apple device identification from Bonjour/mDNS"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "ifaddr>=0.2.0,<0.3",
+  "zeroconf>=0.151.0,<0.152",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9"]
+
+[project.scripts]
+bonjour-fingerprint = "bonjour_fingerprint.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bonjour_fingerprint"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/bonjour_fingerprint/data/apple_models.json" = "bonjour_fingerprint/data/apple_models.json"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
