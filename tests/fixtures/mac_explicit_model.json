@@ -12,7 +12,7 @@
   ],
   "expected": {
     "category": "MacBook Pro",
-    "model": "MacBook Pro (14-inch, M5 Pro, 2026)",
+    "model": "MacBook Pro (14-inch, M5 Pro or M5 Max, 2026)",
     "confidence": "high"
   }
 }

@@ -1,8 +1,6500 @@
 {
-  "Mac17,9": "MacBook Pro (14-inch, M5 Pro, 2026)",
-  "MacBookPro18,3": "MacBook Pro (14-inch, 2021)",
-  "Mac14,7": "MacBook Pro (13-inch, M2, 2022)",
-  "iPhone14,5": "iPhone 13",
-  "iPad13,4": "iPad Pro (11-inch, 3rd generation)",
-  "AudioAccessory1,1": "HomePod"
+  "schema_version": 1,
+  "models": {
+    "312": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G3 (1st Series, Wallstreet)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "313": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "314": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G3 (1st Series, Mainstreet)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "406": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G3 (2nd Series)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "510": {
+      "category": "PowerMac",
+      "names": [
+        "Power Macintosh G3 (All-in-One)",
+        "Power Macintosh G3 (Desktop)",
+        "Power Macintosh G3 (Mini Tower)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ADP2,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Developer Transition Kit"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ADP3,1": {
+      "category": "Mac mini",
+      "names": [
+        "Developer Transition Kit"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ADP3,2": {
+      "category": "Mac mini",
+      "names": [
+        "Developer Transition Kit"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ATVRemote1,1": {
+      "category": "Remote",
+      "names": [
+        "Siri Remote (1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ATVRemote1,2": {
+      "category": "Remote",
+      "names": [
+        "Siri Remote (1st generation, Rev A)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ATVRemote1,3": {
+      "category": "Remote",
+      "names": [
+        "Siri Remote (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ATVRemote1,4": {
+      "category": "Remote",
+      "names": [
+        "Siri Remote (3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods1,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (1st generation)",
+        "AirPods (Left, 1st generation)",
+        "AirPods (Right, 1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AirPods1,2": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 2nd generation)",
+        "AirPods (Right, 2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods1,3": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 3rd generation)",
+        "AirPods (Right, 3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods1,4": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 (Left)",
+        "AirPods 4 (Right)",
+        "Charging Case for AirPods 4"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods1,5": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 with Active Noise Cancellation (Left)",
+        "AirPods 4 with Active Noise Cancellation (Right)",
+        "Wireless Charging Case for AirPods 4 (ANC)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods2,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (2nd generation)",
+        "AirPods (Left, 2nd generation)",
+        "AirPods (Right, 2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AirPods2,2": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 1st generation)",
+        "AirPods Pro (Right, 1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods3,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 2nd generation)",
+        "AirPods Pro (Right, 2nd generation)",
+        "MagSafe Charging Case (USB-C) for AirPods Pro (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods3,2": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 (Left)",
+        "AirPods 4 (Right)",
+        "Charging Case for AirPods 4"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods3,3": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 with Active Noise Cancellation (Left)",
+        "AirPods 4 with Active Noise Cancellation (Right)",
+        "Wireless Charging Case for AirPods 4 (ANC)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods3,4": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro 3 (Left)",
+        "AirPods Pro 3 (Right)",
+        "MagSafe Charging Case for AirPods Pro 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPods3,6": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max 2"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPodsMax1,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max",
+        "AirPods Max with USB-C"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPodsMax1,2": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max 2"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPodsPro1,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 1st generation)",
+        "AirPods Pro (Right, 1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPodsPro1,2": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 2nd generation)",
+        "AirPods Pro (Right, 2nd generation)",
+        "MagSafe Charging Case (USB-C) for AirPods Pro (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPodsPro1,3": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro 3 (Left)",
+        "AirPods Pro 3 (Right)",
+        "MagSafe Charging Case for AirPods Pro 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort10,115": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Express 802.11n (2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AirPort4,102": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Express 802.11g"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort4,107": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Express 802.11n (1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AirPort5,104": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort5,105": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort5,108": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort5,114": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (4th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort5,117": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (5th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirPort7,120": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Extreme (6th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AirTag1,1": {
+      "category": "AirTag",
+      "names": [
+        "AirTag"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleDisplay18,1": {
+      "category": "Display",
+      "names": [
+        "Studio Display XDR"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AppleDisplay18,2": {
+      "category": "Display",
+      "names": [
+        "Studio Display (2026)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AppleDisplay2,1": {
+      "category": "Display",
+      "names": [
+        "Apple Studio Display",
+        "Studio Display"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV1,1": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV (1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV11,1": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV 4K (2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV14,1": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV 4K (3rd generation) Wi-Fi",
+        "Apple TV 4K (3rd generation) Wi-Fi + Ethernet"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AppleTV14,4": {
+      "category": "Apple TV",
+      "names": [
+        "Unreleased Apple TV"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AppleTV14,5": {
+      "category": "Apple TV",
+      "names": [
+        "Unreleased Apple TV"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AppleTV2,1": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV (2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV3,1": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV (3rd generation)",
+        "Apple TV (3rd generation, Early 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV3,2": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV (3rd generation, Early 2013)",
+        "Apple TV (3rd generation, Rev A)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV5,3": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV HD",
+        "Apple TV HD (4th generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AppleTV6,2": {
+      "category": "Apple TV",
+      "names": [
+        "Apple TV 4K (1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Audio2,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 3rd generation)",
+        "AirPods (Right, 3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Audio2,2": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Fit Pro (Left)",
+        "Beats Fit Pro (Right)",
+        "Beats Fit Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AudioAccessory1,1": {
+      "category": "HomePod",
+      "names": [
+        "HomePod",
+        "HomePod (1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AudioAccessory1,2": {
+      "category": "HomePod",
+      "names": [
+        "HomePod (1st generation, Unknown Model)",
+        "HomePod (Revision)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AudioAccessory5,1": {
+      "category": "HomePod",
+      "names": [
+        "HomePod mini",
+        "HomePod mini (China Mainland)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "AudioAccessory6,1": {
+      "category": "HomePod",
+      "names": [
+        "HomePod (2nd generation)",
+        "HomePod (2nd generation) (China Mainland)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "AudioAccessorySingle5,1": {
+      "category": "HomePod",
+      "names": [
+        "HomePod mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsFitPro1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Fit Pro (Left)",
+        "Beats Fit Pro (Right)",
+        "Beats Fit Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsFlex1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Flex"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsPill1,2": {
+      "category": "Beats Speakers",
+      "names": [
+        "Beats Pill (3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsSolo3,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo³ NAYVA Club Collection",
+        "Beats Solo³ Wireless",
+        "Beats Solo³ Wireless LINE Friends Edition",
+        "Beats Solo³ Wireless Mickey's 90th Anniversary Edition",
+        "Beats Solo³ Wireless Mowalola Edition",
+        "Beats Solo³ Wireless New Year Special Edition",
+        "Beats Solo³ Wireless Third Man Records Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsSolo4,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo 4",
+        "Beats Solo 4 - JENNIE",
+        "Beats Solo 4 Minecraft Edition",
+        "Beats Solo 4 Sandy Liang Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsSoloBuds1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Solo Buds (Left)",
+        "Beats Solo Buds (Right)",
+        "Beats Solo Buds Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsSoloPro1,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo Pro",
+        "Beats Solo Pro Eastside Golf Edition",
+        "Beats Solo Pro Verdy Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsStudio3,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio³ Wireless",
+        "Beats Studio³ Wireless ACW* Edition",
+        "Beats Studio³ Wireless Connor McGregor Edition",
+        "Beats Studio³ Wireless Cosmophone",
+        "Beats Studio³ Wireless DJ Khaled Edition",
+        "Beats Studio³ Wireless FaZe Clan Edition",
+        "Beats Studio³ Wireless Ghetto Gastro Edition",
+        "Beats Studio³ Wireless Highground Edition",
+        "Beats Studio³ Wireless Madhappy Edition",
+        "Beats Studio³ Wireless NBA Collection",
+        "Beats Studio³ Wireless Neymar Jr. Custom Edition",
+        "Beats Studio³ Wireless Psychworld Edition",
+        "Beats Studio³ Wireless Violet Grey Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsStudio3,2": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio³ Wireless",
+        "Beats Studio³ Wireless ACW* Edition",
+        "Beats Studio³ Wireless Connor McGregor Edition",
+        "Beats Studio³ Wireless Cosmophone",
+        "Beats Studio³ Wireless DJ Khaled Edition",
+        "Beats Studio³ Wireless FaZe Clan Edition",
+        "Beats Studio³ Wireless Ghetto Gastro Edition",
+        "Beats Studio³ Wireless Highground Edition",
+        "Beats Studio³ Wireless Madhappy Edition",
+        "Beats Studio³ Wireless NBA Collection",
+        "Beats Studio³ Wireless Neymar Jr. Custom Edition",
+        "Beats Studio³ Wireless Psychworld Edition",
+        "Beats Studio³ Wireless Violet Grey Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsStudioBuds1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Studio Buds (Left)",
+        "Beats Studio Buds (Right)",
+        "Beats Studio Buds Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsStudioBuds1,2": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Studio Buds + (Left)",
+        "Beats Studio Buds + (Right)",
+        "Beats Studio Buds + Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsStudioPro1,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio Pro",
+        "Beats Studio Pro Atlanta United FC Edition",
+        "Beats Studio Pro Columbus Crew Edition",
+        "Beats Studio Pro fragment design Edition",
+        "Beats Studio Pro Inter Miami CF Edition",
+        "Beats Studio Pro Kim K Edition",
+        "Beats Studio Pro Los Angeles FC Edition",
+        "Beats Studio Pro Nashville SC Edition",
+        "Beats Studio Pro New York City FC Edition",
+        "Beats Studio Pro St. Louis City SC Edition",
+        "Beats Studio Pro Stüssy Edition",
+        "Beats Studio Pro Toronto FC Edition",
+        "Beats Studio Pro WINDOWSEN Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsX1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beatsˣ",
+        "Beatsˣ sacai Edition",
+        "Beatsˣ UNDEFEATED Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "BeatsX2,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Flex"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule13,1": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Node"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule13,2": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Node"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule13,3": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Node"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule13,5": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Baseboard Management Controller"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule14,1": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Node"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule14,2": {
+      "category": "Virtual Machine",
+      "names": [
+        "Apple PCC Research Environment Virtual Machine 1"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "ComputeModule17,2": {
+      "category": "Compute Module",
+      "names": [
+        "Private Cloud Compute Node"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,21760": {
+      "category": "AirTag",
+      "names": [
+        "AirTag"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8194": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 1st generation)",
+        "AirPods (Right, 1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8195": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats³ Wireless",
+        "Powerbeats³ Wireless Balmain Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8197": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beatsˣ",
+        "Beatsˣ sacai Edition",
+        "Beatsˣ UNDEFEATED Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8198": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo³ NAYVA Club Collection",
+        "Beats Solo³ Wireless",
+        "Beats Solo³ Wireless LINE Friends Edition",
+        "Beats Solo³ Wireless Mickey's 90th Anniversary Edition",
+        "Beats Solo³ Wireless Mowalola Edition",
+        "Beats Solo³ Wireless New Year Special Edition",
+        "Beats Solo³ Wireless Third Man Records Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8199": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio³ Wireless",
+        "Beats Studio³ Wireless ACW* Edition",
+        "Beats Studio³ Wireless Connor McGregor Edition",
+        "Beats Studio³ Wireless Cosmophone",
+        "Beats Studio³ Wireless DJ Khaled Edition",
+        "Beats Studio³ Wireless FaZe Clan Edition",
+        "Beats Studio³ Wireless Ghetto Gastro Edition",
+        "Beats Studio³ Wireless Highground Edition",
+        "Beats Studio³ Wireless Madhappy Edition",
+        "Beats Studio³ Wireless NBA Collection",
+        "Beats Studio³ Wireless Neymar Jr. Custom Edition",
+        "Beats Studio³ Wireless Psychworld Edition",
+        "Beats Studio³ Wireless Violet Grey Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8201": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio³ Wireless",
+        "Beats Studio³ Wireless ACW* Edition",
+        "Beats Studio³ Wireless Connor McGregor Edition",
+        "Beats Studio³ Wireless Cosmophone",
+        "Beats Studio³ Wireless DJ Khaled Edition",
+        "Beats Studio³ Wireless FaZe Clan Edition",
+        "Beats Studio³ Wireless Ghetto Gastro Edition",
+        "Beats Studio³ Wireless Highground Edition",
+        "Beats Studio³ Wireless Madhappy Edition",
+        "Beats Studio³ Wireless NBA Collection",
+        "Beats Studio³ Wireless Neymar Jr. Custom Edition",
+        "Beats Studio³ Wireless Psychworld Edition",
+        "Beats Studio³ Wireless Violet Grey Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8202": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8203": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Pro (Left, 2019)",
+        "Powerbeats Pro (Right, 2019)",
+        "Powerbeats Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8204": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo Pro",
+        "Beats Solo Pro Eastside Golf Edition",
+        "Beats Solo Pro Verdy Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8205": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats (4th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8206": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 1st generation)",
+        "AirPods Pro (Right, 1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8207": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 2nd generation)",
+        "AirPods (Right, 2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8208": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Flex"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8209": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Studio Buds (Left)",
+        "Beats Studio Buds (Right)",
+        "Beats Studio Buds Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8210": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Fit Pro (Left)",
+        "Beats Fit Pro (Right)",
+        "Beats Fit Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8211": {
+      "category": "AirPods",
+      "names": [
+        "AirPods (Left, 3rd generation)",
+        "AirPods (Right, 3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8212": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 2nd generation)",
+        "AirPods Pro (Right, 2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8214": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Studio Buds + (Left)",
+        "Beats Studio Buds + (Right)",
+        "Beats Studio Buds + Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8215": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Studio Pro",
+        "Beats Studio Pro Atlanta United FC Edition",
+        "Beats Studio Pro Columbus Crew Edition",
+        "Beats Studio Pro fragment design Edition",
+        "Beats Studio Pro Inter Miami CF Edition",
+        "Beats Studio Pro Kim K Edition",
+        "Beats Studio Pro Los Angeles FC Edition",
+        "Beats Studio Pro Nashville SC Edition",
+        "Beats Studio Pro New York City FC Edition",
+        "Beats Studio Pro St. Louis City SC Edition",
+        "Beats Studio Pro Stüssy Edition",
+        "Beats Studio Pro Toronto FC Edition",
+        "Beats Studio Pro WINDOWSEN Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8217": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 (Left)",
+        "AirPods 4 (Right)",
+        "Charging Case for AirPods 4"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8218": {
+      "category": "Beats Speakers",
+      "names": [
+        "Beats Pill (3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8219": {
+      "category": "AirPods",
+      "names": [
+        "AirPods 4 with Active Noise Cancellation (Left)",
+        "AirPods 4 with Active Noise Cancellation (Right)",
+        "Wireless Charging Case for AirPods 4 (ANC)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8221": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Pro 2 (Left)",
+        "Powerbeats Pro 2 (Right)",
+        "Powerbeats Pro 2 Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8223": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max with USB-C"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8228": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro (Left, 2nd generation)",
+        "AirPods Pro (Right, 2nd generation)",
+        "MagSafe Charging Case (USB-C) for AirPods Pro (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8229": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo 4",
+        "Beats Solo 4 - JENNIE",
+        "Beats Solo 4 Minecraft Edition",
+        "Beats Solo 4 Sandy Liang Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8230": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Beats Solo Buds (Left)",
+        "Beats Solo Buds (Right)",
+        "Beats Solo Buds Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8231": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro 3 (Left)",
+        "AirPods Pro 3 (Right)",
+        "MagSafe Charging Case for AirPods Pro 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8232": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro 3 (Left)",
+        "AirPods Pro 3 (Right)",
+        "MagSafe Charging Case for AirPods Pro 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8237": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max 2"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,8239": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Fit (Left)",
+        "Powerbeats Fit (Right)",
+        "Powerbeats Fit Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Device1,9728": {
+      "category": "Beats Speakers",
+      "names": [
+        "Beats Pill+",
+        "Beats Pill+ Devin Booker Edition",
+        "Beats Pill+ FaZe Clan Edition",
+        "Beats Pill+ Field Trip Recordings Edition",
+        "Beats Pill+ KAR AUDIO SYSTEM Edition",
+        "Beats Pill+ KITH Edition",
+        "Beats Pill+ Madhappy Edition",
+        "Beats Pill+ Quai 54 Edition",
+        "Beats Pill+ Stüssy Edition",
+        "Beats Pill+ The Malbons Edition",
+        "Beats Pill+ UNDEFEATED Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac13,1": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (2022, M1 Max)",
+        "Mac Studio (M1 Max)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Mac13,2": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (2022, M1 Ultra)",
+        "Mac Studio (M1 Ultra)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Mac14,10": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M2 Pro, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,12": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M2 Pro, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,13": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M2 Max, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,14": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M2 Ultra, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,15": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (15-inch, M2, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (M2, 2022)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Mac14,3": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M2, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,5": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M2 Max, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,6": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M2 Max, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,7": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, M2, 2022)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Mac14,8": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (2023)",
+        "Mac Pro (Rack, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac14,9": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M2 Pro, 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,1": {
+      "category": "MacBook Air",
+      "names": [
+        "Unreleased MacBook Air"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,10": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, 14-core M3 Max, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,11": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, 14-core M3 Max, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,12": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, M3, 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,13": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (15-inch, M3, 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,14": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M3 Ultra, 2025)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,2": {
+      "category": "MacBook Air",
+      "names": [
+        "Unreleased MacBook Air"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M3, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,4": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M3, 2023, Two Ports)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,5": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M3, 2023, Four Ports)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,6": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M3 Pro, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,7": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M3 Pro, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,8": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, 16-core M3 Max, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac15,9": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, 16-core M3 Max, Nov 2023)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M4, Nov 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,10": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M4, 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,11": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M4 Pro, 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,12": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, M4, 2025)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,13": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (15-inch, M4, 2025)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M4, 2024, Two Ports)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M4, 2024, Four Ports)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,5": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M4 Max, Nov 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,6": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M4 Max, Nov 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,7": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M4 Pro, Nov 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,8": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M4 Pro, Nov 2024)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac16,9": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M4 Max, 2025)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,14": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M5 Max)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,15": {
+      "category": "Mac Studio",
+      "names": [
+        "Mac Studio (M5 Ultra)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,16": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M5 Pro)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro 14-inch (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,3": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,4": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (15-inch, M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,5": {
+      "category": "MacBook Neo",
+      "names": [
+        "MacBook Neo"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,6": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M5 Max)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,7": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M5 Max)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,8": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M5 Pro)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Mac17,9": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M5 Pro or M5 Max, 2026)"
+      ],
+      "sources": [
+        "apple_support_108052"
+      ]
+    },
+    "Mac18,5": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M6)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBook1,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Mid 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBook10,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (Retina, 12-inch, 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook2,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Late 2006)",
+        "MacBook (13-inch, Mid 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBook3,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Late 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBook4,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Early 2008)",
+        "MacBook (13-inch, Late 2008)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBook5,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Aluminum, Late 2008)",
+        "MacBook (13-inch, Mid 2009, Unibody)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook5,2": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Early 2009)",
+        "MacBook (13-inch, Mid 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook6,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Late 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook7,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (13-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook8,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (Retina, 12-inch, Early 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBook9,1": {
+      "category": "MacBook",
+      "names": [
+        "MacBook (Retina, 12-inch, Early 2016)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir1,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (Early 2008)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookAir10,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (M1, 2020)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir2,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (Late 2008)",
+        "MacBook Air (Mid 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir3,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (11-inch, Late 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir3,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, Late 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir4,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (11-inch, Mid 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir4,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, Mid 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir5,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (11-inch, Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir5,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir6,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (11-inch, Early 2014)",
+        "MacBook Air (11-inch, Mid 2013)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir6,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, Early 2014)",
+        "MacBook Air (13-inch, Mid 2013)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir7,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (11-inch, Early 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir7,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (13-inch, 2017)",
+        "MacBook Air (13-inch, Early 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir8,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (Retina, 13-inch, 2018)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir8,2": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (Retina, 13-inch, 2019)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookAir9,1": {
+      "category": "MacBook Air",
+      "names": [
+        "MacBook Air (Retina, 13-inch, 2020)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro1,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Early 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro1,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (17-inch, Early 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro10,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 15-inch, Early 2013)",
+        "MacBook Pro (Retina, 15-inch, Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro10,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 13-inch, Early 2013)",
+        "MacBook Pro (Retina, 13-inch, Late 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro11,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 13-inch, Late 2013)",
+        "MacBook Pro (Retina, 13-inch, Mid 2014)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro11,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 15-inch, Late 2013)",
+        "MacBook Pro (Retina, 15-inch, Late 2013, Integrated graphics)",
+        "MacBook Pro (Retina, 15-inch, Mid 2014)",
+        "MacBook Pro (Retina, 15-inch, Mid 2014, Integrated graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro11,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 15-inch, Late 2013, Dedicated graphics)",
+        "MacBook Pro (Retina, 15-inch, Late 2013, Dual Graphics)",
+        "MacBook Pro (Retina, 15-inch, Mid 2014, Dedicated graphics)",
+        "MacBook Pro (Retina, 15-inch, Mid 2014, Dual Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro11,4": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 15-inch, Mid 2015)",
+        "MacBook Pro (Retina, 15-inch, Mid 2015, Integrated graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro11,5": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 15-inch, Mid 2015, Dedicated graphics)",
+        "MacBook Pro (Retina, 15-inch, Mid 2015, Dual Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro12,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (Retina, 13-inch, Early 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro13,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2016, Two Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro13,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2016, Four Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro13,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, 2016)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro14,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2017, Two Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro14,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2017, Four Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro14,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro15,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, 2018)",
+        "MacBook Pro (15-inch, 2019)",
+        "MacBook Pro (15-inch, Mid 2018)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro15,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2018)",
+        "MacBook Pro (13-inch, 2018, Four Thunderbolt 3 ports)",
+        "MacBook Pro (13-inch, 2019, Four Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro15,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, 2019, Radeon Pro Vega Graphics)",
+        "MacBook Pro (15-inch, 2019, Vega)",
+        "MacBook Pro (15-inch, Late 2018, Radeon Pro Vega Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro15,4": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2019, Two Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro16,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, 2019)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro16,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2020, Four Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro16,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, 2020, Two Thunderbolt 3 ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro16,4": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, 2019, AMD Radeon Pro 5600M)",
+        "MacBook Pro (16-inch, 2019, Radeon Pro 5600M Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro17,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, M1, 2020)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro18,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M1 Pro, 2021)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro18,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (16-inch, M1 Max, 2021)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro18,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M1 Pro, 2021)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro18,4": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (14-inch, M1 Max, 2021)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro2,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (17-inch, Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro2,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro3,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Late 2007)",
+        "MacBook Pro (15-inch, Mid 2007)",
+        "MacBook Pro (17-inch, Late 2007)",
+        "MacBook Pro (17-inch, Mid 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro4,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Early 2008)",
+        "MacBook Pro (17-inch, Early 2008)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro5,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Early 2009)",
+        "MacBook Pro (15-inch, Late 2008)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro5,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (17-inch, Early 2009)",
+        "MacBook Pro (17-inch, Mid 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro5,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, 2.53GHz, Mid 2009)",
+        "MacBook Pro (15-inch, Mid 2009)",
+        "MacBook Pro (15-inch, Mid 2009, Dedicated Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro5,4": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Mid 2009, Integrated Graphics)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacBookPro5,5": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, Mid 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro6,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (17-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro6,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro7,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro8,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, Early 2011)",
+        "MacBook Pro (13-inch, Late 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro8,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Early 2011)",
+        "MacBook Pro (15-inch, Late 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro8,3": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (17-inch, Early 2011)",
+        "MacBook Pro (17-inch, Late 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro9,1": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (15-inch, Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacBookPro9,2": {
+      "category": "MacBook Pro",
+      "names": [
+        "MacBook Pro (13-inch, Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacPro1,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Mid 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacPro2,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Early 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacPro3,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Early 2008)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "MacPro4,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Early 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacPro5,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Late 2010)",
+        "Mac Pro (Mid 2010)",
+        "Mac Pro (Mid 2012)",
+        "Mac Pro Server (Mid 2010)",
+        "Mac Pro Server (Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacPro6,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (Late 2013)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "MacPro7,1": {
+      "category": "Mac Pro",
+      "names": [
+        "Mac Pro (2019)",
+        "Mac Pro (Rack, 2019)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini1,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Early 2006)",
+        "Mac mini (Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini10,1": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini (M1 Pro)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini10,2": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini (M1 Max)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini2,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Mid 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini3,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Early 2009)",
+        "Mac mini (Late 2009)",
+        "Mac mini (Mac OS X Server)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini4,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Mid 2010)",
+        "Mac mini Server (Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini5,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Mid 2011)",
+        "Mac mini (Mid 2011, Integrated graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini5,2": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Mid 2011, Dedicated graphics)",
+        "Mac mini (Mid 2011, Intel Core i7)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini5,3": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Mid 2011, Server)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini6,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Late 2012)",
+        "Mac mini (Late 2012, Core i5)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini6,2": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Late 2012, 1TB)",
+        "Mac mini (Late 2012, Core i7)",
+        "Mac mini Server (Late 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini6,3": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini7,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Late 2014)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini7,2": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini7,3": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini8,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (2018)",
+        "Mac mini (Late 2018)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Macmini8,2": {
+      "category": "Mac mini",
+      "names": [
+        "Unreleased Mac mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Macmini9,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (M1, 2020)",
+        "Mac mini (M1, Late 2020)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "PowerBeats3,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats³ Wireless",
+        "Powerbeats³ Wireless Balmain Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBeats4,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats (4th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook1,1": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G3 (Bronze Keyboard)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook2,1": {
+      "category": "iBook",
+      "names": [
+        "iBook",
+        "iBook SE"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook2,2": {
+      "category": "iBook",
+      "names": [
+        "iBook (FireWire)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook3,1": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook (FireWire)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook3,2": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook3,3": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (Gigabit Ethernet)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook3,4": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook3,5": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (1GHz/867MHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook4,1": {
+      "category": "iBook",
+      "names": [
+        "iBook (Dual USB)",
+        "iBook (Late 2001)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook4,2": {
+      "category": "iBook",
+      "names": [
+        "iBook (14.1-inch)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook4,3": {
+      "category": "iBook",
+      "names": [
+        "iBook (14.1-inch, 16 VRAM)",
+        "iBook (14.1-inch, 32 VRAM)",
+        "iBook (16 VRAM)",
+        "iBook (32 VRAM)",
+        "iBook (Opaque 16 VRAM)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,1": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (17-inch)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,2": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (15-inch FW800)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,3": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (17-inch 1.33GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,4": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (15-inch 1.5/1.33 GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,5": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (17-inch 1.5GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,6": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (15-inch 1.67/1.5 GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,7": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (17-inch 1.67 GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,8": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (15-inch Double Layer SD)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook5,9": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (17-inch Double Layer SD)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,1": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (12-inch)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,2": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (12-inch DVI)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,3": {
+      "category": "iBook",
+      "names": [
+        "iBook G4 (12-inch 1 GHz)",
+        "iBook G4 (12-inch 800 MHz)",
+        "iBook G4 (14-inch 1 GHz)",
+        "iBook G4 (14-inch 800 MHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,4": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (12-inch 1.33GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,5": {
+      "category": "iBook",
+      "names": [
+        "iBook G4 (12-inch Early 2004)",
+        "iBook G4 (12-inch Late 2004)",
+        "iBook G4 (14-inch Early 2004)",
+        "iBook G4 (14-inch Late 2004)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,7": {
+      "category": "iBook",
+      "names": [
+        "iBook G4 (12-inch Mid 2005)",
+        "iBook G4 (14-inch Mid 2005)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerBook6,8": {
+      "category": "PowerBook",
+      "names": [
+        "PowerBook G4 (12-inch 1.5GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac1,1": {
+      "category": "PowerMac",
+      "names": [
+        "Power Macintosh G3 (Blue & White)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac1,2": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (PCI Graphics)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac10,1": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Early 2005)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac10,2": {
+      "category": "Mac mini",
+      "names": [
+        "Mac mini (Late 2005)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac11,2": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G5 (Late 2005)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac12,1": {
+      "category": "iMac",
+      "names": [
+        "iMac G5 (17-inch, iSight)",
+        "iMac G5 (20-inch, iSight)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac2,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Slot Loading)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac2,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (Summer 2000)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac3,1": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (AGP Graphics)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac3,3": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (Gigabit Internet)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac3,4": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (Digital Audio)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac3,5": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (QuickSilver 2002)",
+        "Power Mac G4 (QuickSilver 2002ED)",
+        "Power Mac G4 (QuickSilver)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac3,6": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 (FW800)",
+        "Power Mac G4 (Mirrored Drive Doors 2003)",
+        "Power Mac G4 (Mirrored Drive Doors)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac4,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Early 2001)",
+        "iMac (Summer 2001)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac4,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (15-inch Early 2003)",
+        "iMac (Flat Panel)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac4,4": {
+      "category": "eMac",
+      "names": [
+        "eMac",
+        "eMac (1GHz G4)",
+        "eMac (ATI Graphics, 1 GHz)",
+        "eMac (ATI Graphics, 800 MHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac4,5": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch Flat Panel)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac5,1": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G4 Cube"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac6,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac6,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (15-inch USB 2.0)",
+        "iMac (17-inch USB 2.0)",
+        "iMac (20-inch USB 2.0)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac6,4": {
+      "category": "eMac",
+      "names": [
+        "eMac (2005)",
+        "eMac (USB 2.0)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac7,2": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G5",
+        "Power Mac G5 (Early 2005, dual 2.0 GHz)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac7,3": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G5 (Early 2005, dual 2.3/2.7 GHz)",
+        "Power Mac G5 (June 2004)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac8,1": {
+      "category": "iMac",
+      "names": [
+        "iMac G5 (17-inch)",
+        "iMac G5 (20-inch)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac8,2": {
+      "category": "iMac",
+      "names": [
+        "iMac G5 (17-inch, ALS)",
+        "iMac G5 (20-inch, ALS)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerMac9,1": {
+      "category": "PowerMac",
+      "names": [
+        "Power Mac G5 (Late 2004)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Powerb3,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Pro 2 (Left)",
+        "Powerbeats Pro 2 (Right)",
+        "Powerbeats Pro 2 Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Powerbeats2,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats (4th generation)",
+        "Powerbeats Pro (Left, 2019)",
+        "Powerbeats Pro (Right, 2019)",
+        "Powerbeats Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerbeatsPro1,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Pro (Left, 2019)",
+        "Powerbeats Pro (Right, 2019)",
+        "Powerbeats Pro Charging Case"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "PowerbeatsPro2,1": {
+      "category": "Beats Earbuds",
+      "names": [
+        "Powerbeats Pro (Left, 2020)",
+        "Powerbeats Pro (Right, 2020)",
+        "Powerbeats Pro Charging Case (2020)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "RackMac1,1": {
+      "category": "Xserve",
+      "names": [
+        "Xserve"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "RackMac1,2": {
+      "category": "Xserve",
+      "names": [
+        "Xserve (Cluster Node)",
+        "Xserve (Slot Load)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "RackMac3,1": {
+      "category": "Xserve",
+      "names": [
+        "Xserve G5",
+        "Xserve G5 (Cluster Node)",
+        "Xserve G5 (January 2005 Cluster Node)",
+        "Xserve G5 (January 2005)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "RealityDevice14,1": {
+      "category": "Apple Vision Pro",
+      "names": [
+        "Vision Pro"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "RealityDevice17,1": {
+      "category": "Apple Vision Pro",
+      "names": [
+        "Vision Pro (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Solo2,1": {
+      "category": "Beats Headphones",
+      "names": [
+        "Beats Solo Pro",
+        "Beats Solo Pro Eastside Golf Edition",
+        "Beats Solo Pro Verdy Edition"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "TimeCapsule6,106": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Time Capsule (1st generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "TimeCapsule6,109": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Time Capsule (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "TimeCapsule6,113": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Time Capsule (3rd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "TimeCapsule6,116": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Time Capsule (4th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "TimeCapsule8,119": {
+      "category": "AirPort",
+      "names": [
+        "AirPort Time Capsule (5th generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "VirtualMac1,1": {
+      "category": "Virtual Machine",
+      "names": [
+        "Apple Virtual Machine"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "VirtualMac2,1": {
+      "category": "Virtual Machine",
+      "names": [
+        "Apple Virtual Machine 1"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "VirtualMac2,3": {
+      "category": "Virtual Machine",
+      "names": [
+        "Apple Virtual Machine 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch1,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch (1st generation) (38mm)",
+        "Apple Watch 38mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch1,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch (1st generation) (42mm)",
+        "Apple Watch (1st generation) (42mm) (Store Display Model)",
+        "Apple Watch 42mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch2,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Unreleased Apple Watch Series 2 (Cellular, 38mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch2,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Unreleased Apple Watch Series 2 (Cellular, 42mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch2,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 2 (38mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch2,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 2 (42mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch2,5": {
+      "category": "iBridge",
+      "names": [
+        "T1"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch2,6": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 1 (38mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch2,7": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 1 (42mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch3,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 3 (GPS + Cellular, 38mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch3,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 3 (GPS + Cellular, 42mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch3,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 3 (GPS, 38mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch3,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 3 (GPS) 42mm (GPS)",
+        "Apple Watch Series 3 (GPS, 42mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch4,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 4 (GPS, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch4,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 4 (GPS, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch4,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 4 (GPS + Cellular, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch4,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 4 (GPS + Cellular, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 5 (GPS, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,10": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (1st generation, GPS, 44mm)",
+        "Apple Watch SE (2020, GPS) 44mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,11": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (1st generation, GPS + Cellular, 44mm)",
+        "Apple Watch SE (2020, GPS + Cellular) 40mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,12": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (1st generation, GPS + Cellular, 44mm)",
+        "Apple Watch SE (2020, GPS + Cellular) 44mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 5 (GPS, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 5 (GPS + Cellular, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 5 (GPS + Cellular, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch5,9": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (1st generation, GPS, 40mm)",
+        "Apple Watch SE (2020, GPS) 40mm"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 6 (GPS, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,10": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (2022, GPS) 40mm",
+        "Apple Watch SE (2nd generation, GPS, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,11": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (2022, GPS) 44mm",
+        "Apple Watch SE (2nd generation, GPS, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,12": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (2022, GPS + Cellular) 40mm",
+        "Apple Watch SE (2nd generation, GPS + Cellular, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,13": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE (2022, GPS + Cellular) 44mm",
+        "Apple Watch SE (2nd generation, GPS + Cellular, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,14": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 8 (GPS, 41mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,15": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 8 (GPS, 45mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,16": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 8 (GPS + Cellular, 41mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,17": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 8 (GPS + Cellular, 45mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,18": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Ultra"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 6 (GPS, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 6 (GPS + Cellular, 40mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 6 (GPS + Cellular, 44mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,6": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 7 (GPS, 41mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,7": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 7 (GPS, 45mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,8": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 7 (GPS + Cellular, 41mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch6,9": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 7 (GPS + Cellular, 45mm)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "Watch7,1": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 9 (GPS, 41mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,10": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 10 (GPS + Cellular, 42mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,11": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 10 (GPS + Cellular, 46mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,12": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Ultra 3"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,13": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE 3 (GPS, 40mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,14": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE 3 (GPS, 44mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,15": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE 3 (GPS + Cellular, 40mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,16": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch SE 3 (GPS + Cellular, 44mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,17": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 11 (GPS, 42mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,18": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 11 (GPS, 46mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,19": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 11 (GPS + Cellular, 42mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,2": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 9 (GPS, 45mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,20": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 11 (GPS + Cellular, 46mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,3": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 9 (GPS + Cellular, 41mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,4": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 9 (GPS + Cellular, 45mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,5": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Ultra 2"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,8": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 10 (GPS, 42mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Watch7,9": {
+      "category": "Apple Watch",
+      "names": [
+        "Apple Watch Series 10 (GPS, 46mm)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Xserve1,1": {
+      "category": "Xserve",
+      "names": [
+        "Xserve (Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Xserve2,1": {
+      "category": "Xserve",
+      "names": [
+        "Xserve (Early 2008)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "Xserve3,1": {
+      "category": "Xserve",
+      "names": [
+        "Xserve (Early 2009)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "afw1,5": {
+      "category": "AirTag",
+      "names": [
+        "AirTag"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "afw2,4": {
+      "category": "AirTag",
+      "names": [
+        "AirTag (2nd generation)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "chg1,1": {
+      "category": "Power",
+      "names": [
+        "MagSafe Charger (1m)",
+        "MagSafe Charger (2m)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iAccy1,1": {
+      "category": "Adapters",
+      "names": [
+        "Lightning Digital AV Adapter"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iAccy1,2": {
+      "category": "Adapters",
+      "names": [
+        "Lightning to VGA Adapter"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge1,1": {
+      "category": "iBridge",
+      "names": [
+        "T1"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,1": {
+      "category": "iBridge",
+      "names": [
+        "T2 (iMacPro1,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,10": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro15,4)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,11": {
+      "category": "iBridge",
+      "names": [
+        "T2 (Unknown)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,12": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookAir8,2)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,13": {
+      "category": "iBridge",
+      "names": [
+        "T2 (Unknown)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,14": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro16,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,15": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookAir9,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,16": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro16,2)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,19": {
+      "category": "iBridge",
+      "names": [
+        "T2 (iMac20,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,20": {
+      "category": "iBridge",
+      "names": [
+        "T2 (iMac20,2)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,21": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro16,3)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,22": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro16,4)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,3": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro15,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,4": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro15,2)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,5": {
+      "category": "iBridge",
+      "names": [
+        "T2 (Macmini8,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,6": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacPro7,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,7": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookPro15,3)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iBridge2,8": {
+      "category": "iBridge",
+      "names": [
+        "T2 (MacBookAir8,1)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (1999)",
+        "iMac (Revision A)",
+        "iMac (Revision B)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac10,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2009)",
+        "iMac (27-inch, Late 2009)",
+        "iMac (27-inch, Late 2009, Core 2 Duo)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac11,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (27-inch, Late 2009, Core i5/i7)",
+        "iMac (27-inch, Late 2009, Intel Core i5)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac11,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac11,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (27-inch, Mid 2010)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac12,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2011)",
+        "iMac (21.5-inch, Mid 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac12,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (27-inch, Mid 2011)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac13,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac13,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (27-inch, Late 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac13,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Early 2013)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac14,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2013)",
+        "iMac (21.5-inch, Late 2013, Integrated Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac14,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (27-inch, Late 2013)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac14,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2013, Dedicated Graphics)",
+        "iMac (21.5-inch, Mid 2014, Dual Graphics)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac14,4": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Mid 2014)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac15,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, Late 2014)",
+        "iMac (Retina 5K, 27-inch, Mid 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac16,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac16,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, Late 2015)",
+        "iMac (Retina 4K, 21.5-inch, Late 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac17,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, Late 2015)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac18,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (21.5-inch, 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac18,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 4K, 21.5-inch, 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac18,3": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac19,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, 2019)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac19,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 4K, 21.5-inch, 2019)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac20,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, 2020)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac20,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (Retina 5K, 27-inch, 2020, Radeon Pro 5700/XT)",
+        "iMac (Retina 5K, 27-inch, 2020, RX 5700/XT)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac21,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M1, 2021, 4 Ports)",
+        "iMac (24-inch, M1, 2021, Four Ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac21,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, M1, 2021, 2 Ports)",
+        "iMac (24-inch, M1, 2021, Two Ports)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMac4,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch, Early 2006)",
+        "iMac (20-inch, Early 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac4,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch, Mid 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac5,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch, Late 2006, Dedicated Graphics)",
+        "iMac (20-inch, Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac5,2": {
+      "category": "iMac",
+      "names": [
+        "iMac (17-inch, Late 2006, Integrated Graphics)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac6,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (24-inch, Late 2006)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac7,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (20-inch, Mid 2007)",
+        "iMac (24-inch, Mid 2007)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac8,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (20-inch, Early 2008)",
+        "iMac (24-inch, Early 2008)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iMac9,1": {
+      "category": "iMac",
+      "names": [
+        "iMac (20-inch, Early 2009)",
+        "iMac (20-inch, Mid 2009)",
+        "iMac (24-inch, Early 2009)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iMacPro1,1": {
+      "category": "iMac",
+      "names": [
+        "iMac Pro",
+        "iMac Pro (Retina 5K, 27-inch, Late 2017)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad1,1": {
+      "category": "iPad",
+      "names": [
+        "iPad"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad1,2": {
+      "category": "iPad",
+      "names": [
+        "iPad 3G"
+      ],
+      "sources": [
+        "apple_device_identifiers"
+      ]
+    },
+    "iPad11,1": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (5th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad11,2": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (5th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad11,3": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (3rd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad11,4": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (3rd generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad11,6": {
+      "category": "iPad",
+      "names": [
+        "iPad (8th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad11,7": {
+      "category": "iPad",
+      "names": [
+        "iPad (8th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad12,1": {
+      "category": "iPad",
+      "names": [
+        "iPad (9th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad12,2": {
+      "category": "iPad",
+      "names": [
+        "iPad (9th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,1": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (4th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,10": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9 inch (5th generation) Wi-Fi + Cellular (Global)",
+        "iPad Pro 12.9-inch (5th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,11": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9 inch (5th generation) Wi-Fi + Cellular (China)",
+        "iPad Pro 12.9-inch (5th generation) Wi-Fi + Cellular (1 or 2 TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,16": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (5th generation) Wi-Fi",
+        "iPad Air 5th Gen (WiFi)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,17": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (5th generation) Wi-Fi + Cellular",
+        "iPad Air 5th Gen (WiFi + Cellular)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,18": {
+      "category": "iPad",
+      "names": [
+        "iPad (10th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,19": {
+      "category": "iPad",
+      "names": [
+        "iPad (10th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,2": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air (4th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,20": {
+      "category": "iPad",
+      "names": [
+        "Unreleased iPad"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad13,21": {
+      "category": "iPad",
+      "names": [
+        "Unreleased iPad"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad13,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (3rd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,5": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11 inch (3rd generation) Wi-Fi + Cellular (US)",
+        "iPad Pro 11-inch (3rd generation) Wi-Fi (1 or 2 TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,6": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11 inch (3rd generation) Wi-Fi + Cellular (Global)",
+        "iPad Pro 11-inch (3rd generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,7": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11 inch (3rd generation) Wi-Fi + Cellular (China)",
+        "iPad Pro 11-inch (3rd generation) Wi-Fi + Cellular (1 or 2 TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,8": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (5th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad13,9": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9 inch (5th generation) Wi-Fi + Cellular (US)",
+        "iPad Pro 12.9-inch (5th generation) Wi-Fi (1 or 2 TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,1": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (6th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,10": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M2) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad14,11": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M2) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad14,2": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (6th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11 inch (4rd generation) Wi-Fi",
+        "iPad Pro 11-inch (4th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11 inch (4rd generation) Wi-Fi + Cellular",
+        "iPad Pro 11-inch (4th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,5": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (6th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,6": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (6th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad14,8": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M2) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad14,9": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M2) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,3": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M3) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,4": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M3) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,5": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M3) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,6": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M3) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,7": {
+      "category": "iPad",
+      "names": [
+        "iPad (A16) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad15,8": {
+      "category": "iPad",
+      "names": [
+        "iPad (A16) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,1": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (A17 Pro) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,10": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M4) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,11": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 13-inch (M4) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,2": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (A17 Pro) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (M4) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (M4) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,5": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 13-inch (M4) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,6": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 13-inch (M4) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,8": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M4) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad16,9": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 11-inch (M4) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad17,1": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch Wi-Fi (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad17,2": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch Wi-Fi + Cellular (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad17,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 13-inch Wi-Fi (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad17,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 13-inch Wi-Fi + Cellular (M5)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad2,1": {
+      "category": "iPad",
+      "names": [
+        "iPad 2",
+        "iPad 2 Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,2": {
+      "category": "iPad",
+      "names": [
+        "iPad 2 (GSM)",
+        "iPad 2 Wi-Fi + 3G (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,3": {
+      "category": "iPad",
+      "names": [
+        "iPad 2 (CDMA)",
+        "iPad 2 Wi-Fi + 3G (CDMA)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,4": {
+      "category": "iPad",
+      "names": [
+        "iPad 2 (Revision)",
+        "iPad 2 Wi-Fi (Mid 2012)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,5": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini",
+        "iPad mini Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,6": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (LTE + GSM)",
+        "iPad mini Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad2,7": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini (LTE + CDMA)",
+        "iPad mini Wi-Fi + Cellular (MM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,1": {
+      "category": "iPad",
+      "names": [
+        "iPad (3rd generation)",
+        "iPad (3rd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,2": {
+      "category": "iPad",
+      "names": [
+        "iPad (3rd generation) Wi-Fi + Cellular (VZ)",
+        "iPad (3rd generation, CDMA)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,3": {
+      "category": "iPad",
+      "names": [
+        "iPad (3rd generation) Wi-Fi + Cellular",
+        "iPad (3rd generation, GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,4": {
+      "category": "iPad",
+      "names": [
+        "iPad (4th generation)",
+        "iPad (4th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,5": {
+      "category": "iPad",
+      "names": [
+        "iPad (4th generation) Wi-Fi + Cellular",
+        "iPad (4th generation, LTE + GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad3,6": {
+      "category": "iPad",
+      "names": [
+        "iPad (4th generation) Wi-Fi + Cellular (MM)",
+        "iPad (4th generation, LTE + CDMA)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,1": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,2": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,3": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air Wi-Fi + Cellular (China)",
+        "iPad Air Wi-Fi + Cellular (TD-LTE)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,4": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 2 Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,5": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 2 Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,6": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 2 Wi-Fi + Cellular (China)",
+        "iPad mini 2 Wi-Fi + Cellular (TD-LTE)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,7": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 3 Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,8": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 3 Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad4,9": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 3 Wi-Fi + Cellular (China)",
+        "iPad mini 3 Wi-Fi + Cellular (TD-LTE)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad5,1": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 4 Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad5,2": {
+      "category": "iPad mini",
+      "names": [
+        "iPad mini 4 Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad5,3": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 2 Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad5,4": {
+      "category": "iPad Air",
+      "names": [
+        "iPad Air 2 Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad5,5": {
+      "category": "iPad Pro",
+      "names": [
+        "Unreleased iPad Pro"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad5,6": {
+      "category": "iPad Pro",
+      "names": [
+        "Unreleased iPad Pro"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad6,1": {
+      "category": "iPad mini",
+      "names": [
+        "Unreleased iPad mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad6,11": {
+      "category": "iPad",
+      "names": [
+        "iPad (5th generation) Wi-Fi"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad6,12": {
+      "category": "iPad",
+      "names": [
+        "iPad (5th generation) Wi-Fi",
+        "iPad (5th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad6,2": {
+      "category": "iPad mini",
+      "names": [
+        "Unreleased iPad mini"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPad6,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (9.7-inch) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad6,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (9.7-inch) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad6,7": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (12.9 inch) Wi-Fi",
+        "iPad Pro (12.9-inch) (1st generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad6,8": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (12.9 inch) Wi-Fi + Cellular",
+        "iPad Pro (12.9-inch) (1st generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,1": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (12.9-inch) (2nd generation) Wi-Fi",
+        "iPad Pro (2nd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,11": {
+      "category": "iPad",
+      "names": [
+        "iPad (7th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,12": {
+      "category": "iPad",
+      "names": [
+        "iPad (7th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,2": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (12.9-inch) (2nd generation) Wi-Fi + Cellular",
+        "iPad Pro (2nd generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (10.5-inch) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro (10.5-inch) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,5": {
+      "category": "iPad",
+      "names": [
+        "iPad (6th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad7,6": {
+      "category": "iPad",
+      "names": [
+        "iPad (6th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,1": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (1st generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,10": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (2nd generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,11": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (4th generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,12": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (4th generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,2": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (1st generation) Wi-Fi (1TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,3": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (1st generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,4": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (1st generation) Wi-Fi + Cellular (1TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,5": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (3rd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,6": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (3rd generation) Wi-Fi (1TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,7": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (3rd generation) Wi-Fi + Cellular"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,8": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 12.9-inch (3rd generation) Wi-Fi + Cellular (1TB)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPad8,9": {
+      "category": "iPad Pro",
+      "names": [
+        "iPad Pro 11-inch (2nd generation) Wi-Fi"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone1,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone1,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 3G"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 8 (CDMA)",
+        "iPhone 8 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 8 Plus (CDMA)",
+        "iPhone 8 Plus (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone X (CDMA)",
+        "iPhone X (Global)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 8 (Global)",
+        "iPhone 8 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 8 Plus (Global)",
+        "iPhone 8 Plus (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone10,6": {
+      "category": "iPhone",
+      "names": [
+        "iPhone X (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone11,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone XS"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone11,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone XS Max (China mainland)",
+        "iPhone XS Max (unreleased)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone11,6": {
+      "category": "iPhone",
+      "names": [
+        "iPhone XS Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone11,8": {
+      "category": "iPhone",
+      "names": [
+        "iPhone XR"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone12,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 11"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone12,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 11 Pro"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone12,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 11 Pro Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone12,8": {
+      "category": "iPhone",
+      "names": [
+        "iPhone SE (2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone13,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 12 mini"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone13,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 12"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone13,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 12 Pro"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone13,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 12 Pro Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 13 Pro"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 13 Pro Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 13 mini"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 13"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,6": {
+      "category": "iPhone",
+      "names": [
+        "iPhone SE (3rd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,7": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 14"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone14,8": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 14 Plus"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone15,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 14 Pro"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone15,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 14 Pro Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone15,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 15"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone15,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 15 Plus"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone16,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 15 Pro"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone16,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 15 Pro Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone17,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 16 Pro"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone17,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 16 Pro Max"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone17,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 16"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone17,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 16 Plus"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone17,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 16e"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone18,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 17 Pro"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone18,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 17 Pro Max"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone18,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 17"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone18,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone Air"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone18,5": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 17e"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPhone2,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 3GS"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone3,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 4 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone3,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 4 (GSM, 2012)",
+        "iPhone 4 (GSM, Revision A)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone3,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 4 (CDMA)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone4,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 4S"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone5,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone5,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5 (CDMA)",
+        "iPhone 5 (Global)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone5,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5c (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone5,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5c (CDMA)",
+        "iPhone 5C (Global)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone6,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5s (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone6,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 5s (CDMA)",
+        "iPhone 5S (Global)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone7,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 6 Plus"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone7,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 6"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone8,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 6s"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone8,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 6s Plus"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone8,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone SE (1st generation)",
+        "iPhone SE (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone9,1": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 7 (CDMA)",
+        "iPhone 7 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone9,2": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 7 Plus (CDMA)",
+        "iPhone 7 Plus (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone9,3": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 7 (Global)",
+        "iPhone 7 (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone9,4": {
+      "category": "iPhone",
+      "names": [
+        "iPhone 7 Plus (Global)",
+        "iPhone 7 Plus (GSM)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPhone99,11": {
+      "category": "Simulator",
+      "names": [
+        "virtual machine for iPhone Research Environment"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPod1,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod2,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (2nd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod2,2": {
+      "category": "iPod touch",
+      "names": [
+        "Unreleased iPod touch (2nd generation, Rev. A)"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPod3,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (3rd generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod4,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (4th generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod4,2": {
+      "category": "iPod touch",
+      "names": [
+        "Unreleased iPod touch"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    },
+    "iPod5,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (5th generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod7,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (6th generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iPod9,1": {
+      "category": "iPod touch",
+      "names": [
+        "iPod touch (7th generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iProd8,1": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Pro",
+        "AirPods Pro (Left, 1st generation)",
+        "AirPods Pro (Right, 1st generation)"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iProd8,6": {
+      "category": "AirPods",
+      "names": [
+        "AirPods Max"
+      ],
+      "sources": [
+        "apple_device_identifiers",
+        "appledb"
+      ]
+    },
+    "iProd9,4": {
+      "category": "Security",
+      "names": [
+        "Network Adapter"
+      ],
+      "sources": [
+        "appledb"
+      ]
+    }
+  }
 }
