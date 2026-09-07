@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-09-08",
+  "model_count": 647,
+  "schema_version": 1,
+  "sources": {
+    "apple_device_identifiers": {
+      "artifact": "https://raw.githubusercontent.com/clo4/apple_device_identifiers/52b730be317fb64d75dae72ea1edbe5eca946250/ids.json",
+      "commit": "52b730be317fb64d75dae72ea1edbe5eca946250",
+      "license": "Unlicense / public domain",
+      "repository": "https://github.com/clo4/apple_device_identifiers"
+    },
+    "apple_support_108052": {
+      "checked_at": "2026-09-08",
+      "publisher": "Apple",
+      "url": "https://support.apple.com/en-us/108052"
+    },
+    "appledb": {
+      "artifact": "https://raw.githubusercontent.com/littlebyteorg/appledb/b69e073a0010d221b446ac3fd9165ab52d1af919/device/main.json",
+      "commit": "b69e073a0010d221b446ac3fd9165ab52d1af919",
+      "license": "MIT",
+      "repository": "https://github.com/littlebyteorg/appledb"
+    }
+  }
+}

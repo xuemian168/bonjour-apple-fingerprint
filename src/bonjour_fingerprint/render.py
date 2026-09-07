@@ -144,6 +144,12 @@ def render_text(
             f"{_text_evidence_value(result, item)}"
             for item in result.evidence
         )
+        if len(result.candidates) > 1:
+            lines.append("  candidates:")
+            lines.extend(
+                f"    - {item.identifier}: {item.name}"
+                for item in result.candidates
+            )
         if result.missing:
             lines.append("  missing: " + ", ".join(result.missing))
         if result.conflicts:

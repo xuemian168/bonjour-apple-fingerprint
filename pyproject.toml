@@ -24,6 +24,8 @@ packages = ["src/bonjour_fingerprint"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "src/bonjour_fingerprint/data/apple_models.json" = "bonjour_fingerprint/data/apple_models.json"
+"src/bonjour_fingerprint/data/apple_models.meta.json" = "bonjour_fingerprint/data/apple_models.meta.json"
+"src/bonjour_fingerprint/data/apple_model_overrides.json" = "bonjour_fingerprint/data/apple_model_overrides.json"
 
 [tool.pytest.ini_options]
 addopts = "-q"

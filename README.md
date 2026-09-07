@@ -73,19 +73,52 @@ do not reveal an exact hardware model.
 Category classification and exact model identification are separate:
 
 - **High** confidence requires an explicit recognized model identifier in a
-  model TXT field, such as `am=Mac17,9`.
+  model TXT field, such as `am=Mac17,9`, and a unique catalog mapping.
 - **Medium** confidence means multiple independent signals agree on a category,
   such as an explicit product-family field corroborated by a conventional
-  Bonjour name or relevant service.
+  Bonjour name or relevant service. It is also used when one recognized model
+  identifier has multiple possible catalog matches.
 - **Low** confidence means only one category signal is available (including a
   lone explicit product-family field), a signal is unrecognized, or explicit
   fields conflict.
 
 Exact model names are reported only when an explicit identifier is present and
-recognized by the bundled model catalog. Names, service combinations, ports,
-and IP addresses never become exact model identifiers. Without recognized
-explicit evidence, `model` remains `unknown`. Bonjour evidence is descriptive,
-not proof of ownership or identity.
+recognized by the bundled model catalog. If an identifier maps to multiple
+marketing variants, the output reports the common device category, medium
+confidence, and every candidate instead of selecting one arbitrarily. Names,
+service combinations, ports, and IP addresses never become exact model
+identifiers. Without recognized explicit evidence, `model` remains `unknown`.
+Bonjour evidence is descriptive, not proof of ownership or identity.
+
+## Model catalog
+
+The offline catalog contains 647 identifiers spanning Macs, iPhone, iPad,
+Apple TV, HomePod, Apple Watch, AirPods, AirTag, AirPort, displays, and other
+Apple device families. It merges a pinned public-domain snapshot of
+[`clo4/apple_device_identifiers`](https://github.com/clo4/apple_device_identifiers)
+with a pinned MIT-licensed snapshot of
+[`littlebyteorg/appledb`](https://github.com/littlebyteorg/appledb). A small
+override file records entries checked against Apple Support, including the
+current `Mac17,9` mapping.
+
+Each catalog entry retains its category, all non-equivalent marketing names,
+and source identifiers. `apple_models.meta.json` records exact upstream commit
+hashes, artifact URLs, licenses, the verification date, and the generated entry
+count. The scanner reads only bundled files and never contacts those sources.
+
+To refresh the catalog deliberately:
+
+```bash
+python3 scripts/update_apple_models.py --checked-at YYYY-MM-DD
+python3 -m pytest
+```
+
+The updater downloads only immutable commit-pinned artifacts, validates their
+structure, fails on conflicting AppleDB categories, writes files atomically,
+and produces stable catalog JSON for identical inputs. Review generated
+changes and upstream licenses before committing an update. See
+[`THIRD_PARTY_DATA.md`](THIRD_PARTY_DATA.md) for provenance and redistribution
+details.
 
 ## Privacy and limitations
 
@@ -101,6 +134,8 @@ information. Review text and JSON output before storing or sharing it.
 - Sleeping, offline, firewalled, or quiet devices may not advertise during the
   observation window.
 - Some devices omit `_device-info`, so an exact model may remain unknown.
+- Marketing names and identifiers are community-maintained except for explicit
+  Apple Support overrides; the catalog can be incomplete or contain errors.
 - An SRV port of `0` is retained as an observed value. A missing service-info
   response is represented separately and rendered with a `null` JSON port.
 - The tool performs no BLE discovery and no active VNC, SSH, SMB, or other

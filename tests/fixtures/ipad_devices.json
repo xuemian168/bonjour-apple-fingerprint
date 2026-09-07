@@ -33,8 +33,8 @@
         }
       ],
       "expected": {
-        "category": "iPad",
-        "model": "iPad Pro (11-inch, 3rd generation)",
+        "category": "iPad Pro",
+        "model": "iPad Pro 11-inch (3rd generation) Wi-Fi",
         "confidence": "high"
       }
     }

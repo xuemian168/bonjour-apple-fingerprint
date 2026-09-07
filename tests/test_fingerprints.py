@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 from bonjour_fingerprint.aggregator import DeviceAggregator
+from bonjour_fingerprint.catalog import CatalogEntry
 from bonjour_fingerprint.fingerprints import classify, load_model_catalog
 from bonjour_fingerprint.models import Confidence, ModelCandidate, ServiceObservation
 from bonjour_fingerprint.render import render_text, result_to_dict
@@ -65,6 +66,47 @@ def test_explicit_known_apple_identifier_is_high_confidence():
     )
     assert result.model == "MacBook Pro (14-inch, M5 Pro, 2026)"
     assert result.confidence is Confidence.HIGH
+
+
+def test_ambiguous_catalog_identifier_preserves_all_candidates():
+    catalog = {
+        "MacBookPro11,1": CatalogEntry(
+            category="MacBook Pro",
+            names=(
+                "MacBook Pro (Retina, 13-inch, Late 2013)",
+                "MacBook Pro (Retina, 13-inch, Mid 2014)",
+            ),
+            sources=("apple_device_identifiers", "appledb"),
+        )
+    }
+
+    result = classify(
+        device_with(
+            service(
+                "_device-info._tcp.local.",
+                properties={"am": "MacBookPro11,1"},
+            )
+        ),
+        catalog,
+    )
+
+    assert result.category == "MacBook Pro"
+    assert result.model == "MacBook Pro (multiple possible models)"
+    assert result.confidence is Confidence.MEDIUM
+    assert [candidate.name for candidate in result.candidates] == [
+        "MacBook Pro (Retina, 13-inch, Late 2013)",
+        "MacBook Pro (Retina, 13-inch, Mid 2014)",
+    ]
+    assert result.missing == ("unique model mapping",)
+    payload = result_to_dict(result)
+    assert [candidate["name"] for candidate in payload["candidates"]] == [
+        "MacBook Pro (Retina, 13-inch, Late 2013)",
+        "MacBook Pro (Retina, 13-inch, Mid 2014)",
+    ]
+    output = render_text([result], duration=1, interface="en0")
+    assert "  candidates:" in output
+    assert "MacBookPro11,1: MacBook Pro (Retina, 13-inch, Late 2013)" in output
+    assert "MacBookPro11,1: MacBook Pro (Retina, 13-inch, Mid 2014)" in output
 
 
 def test_rfb_and_macbook_name_classify_category_but_not_exact_model():

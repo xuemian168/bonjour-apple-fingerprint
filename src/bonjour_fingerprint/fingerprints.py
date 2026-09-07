@@ -1,8 +1,8 @@
-import json
 from collections.abc import Mapping
 from importlib.resources import files
 from pathlib import Path
 
+from .catalog import CatalogEntry, CatalogValue, coerce_entry, load_catalog
 from .models import (
     ClassificationResult,
     Confidence,
@@ -23,13 +23,14 @@ FAMILY_CATEGORIES = {
 }
 
 
-def load_model_catalog(path: Path | None = None) -> dict[str, str]:
+def load_model_catalog(path: Path | None = None) -> dict[str, CatalogEntry]:
     resource = path or files("bonjour_fingerprint").joinpath("data/apple_models.json")
-    with resource.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+    return load_catalog(resource)
 
 
-def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> ClassificationResult:
+def classify(
+    device: DeviceRecord, catalog: Mapping[str, CatalogValue]
+) -> ClassificationResult:
     services = tuple(
         sorted(
             device.services.values(),
@@ -61,13 +62,10 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
     ]
     evidence = [*category_evidence, *identifier_evidence]
     candidates = tuple(
-        ModelCandidate(
-            identifier,
-            catalog[identifier],
-            min(identifier_sources[identifier]),
-        )
+        ModelCandidate(identifier, name, min(identifier_sources[identifier]))
         for identifier in sorted(identifier_sources)
         if identifier in catalog
+        for name in coerce_entry(identifier, catalog[identifier]).names
     )
 
     if len(identifier_sources) > 1:
@@ -92,8 +90,23 @@ def classify(device: DeviceRecord, catalog: Mapping[str, str]) -> Classification
                 missing=("recognized explicit Apple model identifier",),
             )
         source = min(sources)
-        candidate = ModelCandidate(identifier, catalog[identifier], source)
-        category = _category_from_model(candidate.name) or category
+        entry = coerce_entry(identifier, catalog[identifier])
+        candidates = tuple(
+            ModelCandidate(identifier, name, source) for name in entry.names
+        )
+        category = entry.category or category
+        if len(candidates) > 1:
+            return ClassificationResult(
+                device,
+                category,
+                f"{category} (multiple possible models)",
+                Confidence.MEDIUM,
+                tuple(evidence),
+                candidates=candidates,
+                missing=("unique model mapping",),
+            )
+        candidate = candidates[0]
+        category = entry.category or _category_from_model(candidate.name) or category
         return ClassificationResult(
             device,
             category,
